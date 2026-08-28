@@ -1,0 +1,76 @@
+/* Κοινό στυλ για τις νομικές σελίδες. Οι γραμματοσειρές είναι τοπικές. */
+@font-face{
+  font-family:"Inter";
+  src:url("fonts/Inter-subset.woff2") format("woff2");
+  font-weight:100 900;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"Petrona";
+  src:url("fonts/Petrona-subset.woff2") format("woff2");
+  font-weight:100 900;font-style:normal;font-display:swap;
+}
+:root{
+  --ink:#2E1D12; --ink-soft:#5A4433; --paper:#FAF8F3; --paper-dim:#F0EAE0;
+  --card:#FFFFFF; --brass:#A47C4C; --brass-deep:#7A5626; --line:#DDD3C0; --muted:#7C8783;
+  --serif:"Petrona","Noto Serif",Georgia,"Times New Roman",serif;
+  --sans:"Inter","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--brass-deep);}
+a:hover{color:var(--ink);}
+.wrap{max-width:780px;margin:0 auto;padding:0 26px;}
+
+header.legal{
+  background:var(--ink);color:var(--paper);padding:26px 0;
+  border-bottom:3px solid var(--brass);
+}
+header.legal .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+header.legal strong{font-family:var(--serif);font-size:19px;font-weight:600;}
+header.legal span{
+  display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(250,248,243,0.7);margin-top:3px;
+}
+header.legal a{
+  color:var(--paper);text-decoration:none;font-size:12px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;border-bottom:1px solid var(--brass);padding-bottom:2px;
+}
+
+main{padding:56px 0 80px;}
+h1{
+  font-family:var(--serif);font-size:clamp(28px,4.4vw,42px);font-weight:600;
+  line-height:1.15;margin:0 0 10px;
+}
+.updated{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 38px;}
+h2{
+  font-family:var(--serif);font-size:22px;font-weight:600;
+  margin:44px 0 12px;padding-top:22px;border-top:1px solid var(--line);
+}
+h3{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-deep);margin:26px 0 8px;}
+p{margin:0 0 15px;color:var(--ink-soft);}
+ul{margin:0 0 15px;padding-left:22px;color:var(--ink-soft);}
+li{margin-bottom:9px;}
+strong{color:var(--ink);}
+dl.ident{margin:0;border-top:1px solid var(--line);}
+dl.ident div{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);}
+dl.ident dt{font-weight:600;color:var(--ink);font-size:14px;}
+dl.ident dd{margin:0;color:var(--ink-soft);font-size:14.5px;}
+@media (max-width:620px){ dl.ident div{grid-template-columns:1fr;gap:3px;} }
+
+.todo{
+  background:#FBF1ED;border-left:3px solid #9E3B2A;padding:18px 22px;margin:0 0 34px;
+  font-size:14px;color:var(--ink-soft);line-height:1.65;
+}
+.todo strong{display:block;color:#9E3B2A;font-family:var(--sans);font-size:11.5px;
+  font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+.todo ul{margin:10px 0 0;}
+mark.fill{background:#F7E7B0;color:#5A4433;padding:1px 6px;border-radius:2px;font-weight:600;}
+
+footer.legal{
+  background:#20140C;color:rgba(250,248,243,0.7);padding:36px 0;font-size:13px;
+}
+footer.legal a{color:rgba(250,248,243,0.85);}
+footer.legal .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between;}
