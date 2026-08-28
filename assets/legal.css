@@ -5,14 +5,19 @@
   font-weight:100 900;font-style:normal;font-display:swap;
 }
 @font-face{
-  font-family:"Petrona";
-  src:url("fonts/Petrona-subset.woff2") format("woff2");
-  font-weight:100 900;font-style:normal;font-display:swap;
+  font-family:"EB Garamond";
+  src:url("fonts/EBGaramond-subset.woff2") format("woff2");
+  font-weight:400 800;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"EB Garamond";
+  src:url("fonts/EBGaramond-Italic-subset.woff2") format("woff2");
+  font-weight:400 800;font-style:italic;font-display:swap;
 }
 :root{
   --ink:#2E1D12; --ink-soft:#5A4433; --paper:#FAF8F3; --paper-dim:#F0EAE0;
   --card:#FFFFFF; --brass:#A47C4C; --brass-deep:#7A5626; --line:#DDD3C0; --muted:#7C8783;
-  --serif:"Petrona","Noto Serif",Georgia,"Times New Roman",serif;
+  --serif:"EB Garamond","Noto Serif",Georgia,"Times New Roman",serif;
   --sans:"Inter","Segoe UI",Arial,sans-serif;
 }
 *{box-sizing:border-box;}

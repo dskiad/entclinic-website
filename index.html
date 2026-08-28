@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Χειρουργός Κεφαλής &amp; Τραχήλου</title>
 <link rel="preload" href="assets/fonts/Inter-subset.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Petrona-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/EBGaramond-subset.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   /* Γραμματοσειρές φιλοξενούμενες τοπικά (SIL Open Font License 1.1 — δείτε
      assets/fonts/OFL-*.txt). Δεν γίνεται καμία κλήση σε διακομιστές τρίτων,
@@ -16,9 +16,14 @@
     font-weight:100 900;font-style:normal;font-display:swap;
   }
   @font-face{
-    font-family:"Petrona";
-    src:url("assets/fonts/Petrona-subset.woff2") format("woff2");
-    font-weight:100 900;font-style:normal;font-display:swap;
+    font-family:"EB Garamond";
+    src:url("assets/fonts/EBGaramond-subset.woff2") format("woff2");
+    font-weight:400 800;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:"EB Garamond";
+    src:url("assets/fonts/EBGaramond-Italic-subset.woff2") format("woff2");
+    font-weight:400 800;font-style:italic;font-display:swap;
   }
   :root{
     --ink:#2E1D12;
@@ -31,9 +36,9 @@
     --line:#DDD3C0;
     --muted:#7C8783;
     --shadow: 0 20px 50px -25px rgba(22,48,43,0.35);
-    /* Η Petrona δεν περιλαμβάνει ελληνικό αλφάβητο: οι ελληνικοί τίτλοι
-       αποδίδονται από την επόμενη γραμματοσειρά της σειράς. */
-    --serif: "Petrona", "Noto Serif", Georgia, "Times New Roman", serif;
+    /* EB Garamond: πλήρες ελληνικό αλφάβητο σε όρθια και πλάγια γραφή,
+       ώστε οι τίτλοι να μην πέφτουν σε εφεδρική γραμματοσειρά. */
+    --serif: "EB Garamond", "Noto Serif", Georgia, "Times New Roman", serif;
     --sans: "Inter", "Segoe UI", Arial, sans-serif;
   }
   *{box-sizing:border-box;}
