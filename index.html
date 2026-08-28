@@ -423,6 +423,75 @@
   .mobile-nav a{padding:14px 0;border-bottom:1px solid var(--line);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:14px;}
   .mobile-nav .close-x{align-self:flex-end;background:none;border:0;font-size:26px;cursor:pointer;color:var(--ink);margin-bottom:10px;}
   .scrim{position:fixed;inset:0;background:rgba(22,48,43,0.4);z-index:190;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+
+  /* ===== appointment CTA ===== */
+  :root{
+    --royal:#16309B; --royal-deep:#0C1B5E;
+    --gold:#D4AF37; --gold-lt:#F6E27A; --gold-dk:#A67C1A;
+  }
+  .btn-book{
+    position:relative;
+    background:linear-gradient(145deg,#F8E88F 0%,#DEBB4E 26%,#C6A02F 50%,#EFD87B 74%,#B08722 100%);
+    color:var(--royal);
+    border:1px solid var(--gold-dk);
+    font-weight:800;
+    letter-spacing:.10em;
+    white-space:nowrap;
+    text-shadow:0 1px 0 rgba(255,255,255,0.5);
+    box-shadow:0 2px 0 rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.6);
+    animation:bookGlow 10s ease-in-out infinite;
+  }
+  .btn-book:hover{
+    background:linear-gradient(145deg,#FDF2AC 0%,#E8C960 26%,#D4AE3C 50%,#F7E496 74%,#C1962B 100%);
+    color:var(--royal-deep);
+    border-color:var(--gold-dk);
+  }
+  .btn-book:focus-visible{outline:3px solid var(--royal);outline-offset:3px;}
+  @keyframes bookGlow{
+    0%,86%,100%{box-shadow:0 2px 0 rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.6), 0 0 0 0 rgba(212,175,55,0);}
+    90%{box-shadow:0 2px 0 rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.8), 0 0 20px 5px rgba(212,175,55,0.9), 0 0 48px 15px rgba(212,175,55,0.42);}
+    94%{box-shadow:0 2px 0 rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.6), 0 0 0 0 rgba(212,175,55,0);}
+  }
+  .btn-book.booked{
+    background:linear-gradient(145deg,#8FE29A 0%,#46B45D 45%,#2F8B47 100%);
+    color:#FFFFFF;border-color:#2F8B47;text-shadow:none;animation:none;
+    box-shadow:0 0 24px 7px rgba(62,166,83,0.55), inset 0 1px 0 rgba(255,255,255,0.35);
+  }
+  @media (prefers-reduced-motion: reduce){ .btn-book{animation:none;} }
+  .bk-short{display:none;}
+  @media (max-width:760px){
+    .header-actions .bk-full{display:none;}
+    .header-actions .bk-short{display:inline;}
+    .header-actions .btn-book{padding:12px 18px;letter-spacing:.07em;}
+  }
+  @media (max-width:400px){
+    .header-actions{gap:10px;}
+    .header-actions .btn-book{padding:11px 13px;font-size:11px;letter-spacing:.05em;}
+  }
+
+  .book-overlay{
+    position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;
+    padding:7vw 6vw;text-align:center;
+    background:radial-gradient(circle at 50% 40%, #1D3EC2 0%, var(--royal) 42%, var(--royal-deep) 100%);
+    opacity:0;pointer-events:none;transition:opacity .5s ease;
+  }
+  .book-overlay.show{opacity:1;pointer-events:auto;}
+  .book-overlay .rule{width:64px;height:2px;background:var(--gold);margin:0 auto 30px;opacity:.85;}
+  .book-overlay p{
+    font-family:var(--serif);font-style:italic;font-weight:600;
+    font-size:clamp(27px,6.2vw,74px);line-height:1.22;margin:0;color:var(--gold-lt);
+  }
+  @supports ((-webkit-background-clip:text) or (background-clip:text)){
+    .book-overlay p{
+      background:linear-gradient(180deg,#FDF3BC 0%,#EBD273 38%,#C9A337 72%,#9C7A1E 100%);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    }
+  }
+  .book-overlay .sub{
+    display:block;margin-top:34px;font-family:var(--sans);
+    font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(246,226,122,0.72);
+  }
   .scrim.show{opacity:1;pointer-events:auto;}
 </style>
 </head>
@@ -448,13 +517,20 @@
     </nav>
     <div class="header-actions">
       <a class="header-phone" href="tel:2114182737">211 418 27 37</a>
-      <a class="btn btn-solid" href="#contact">Κλείστε Ραντεβού</a>
+      <a class="btn btn-book" href="https://entclinic.gr/book-appointment/"><span class="bk-full">Κλείστε Ραντεβού</span><span class="bk-short">Ραντεβού</span></a>
       <button class="menu-toggle" aria-label="Άνοιγμα μενού" id="menuToggle"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <div class="scrim" id="scrim"></div>
+<div class="book-overlay" id="bookOverlay" role="dialog" aria-modal="true" aria-live="assertive">
+  <div>
+    <div class="rule"></div>
+    <p>… το πρώτο βήμα στην θεραπεία σου μόλις έγινε …</p>
+    <span class="sub">Μεταφέρεστε στη σελίδα ραντεβού</span>
+  </div>
+</div>
 <div class="mobile-nav" id="mobileNav">
   <button class="close-x" id="closeNav">&times;</button>
   <a href="#doctor">Ο Ιατρός</a>
@@ -477,7 +553,7 @@
       <h1>Φροντίδα για την ακοή,<br>την αναπνοή <em>και τη φωνή σας</em>,<br>με ακρίβεια και προσοχή.</h1>
       <p class="lede">Ο Δρ. Λάμπρος Μαριόλης, MD, MSc, συνδυάζει σύγχρονη διαγνωστική τεχνολογία με εξατομικευμένη κλινική προσέγγιση, για παιδιά και ενήλικες, σε έναν χώρο σχεδιασμένο γύρω από τον ασθενή.</p>
       <div class="hero-cta">
-        <a class="btn btn-solid" href="#contact">Κλείστε Ραντεβού</a>
+        <a class="btn btn-book" href="https://entclinic.gr/book-appointment/">Κλείστε Ραντεβού</a>
         <a class="btn btn-outline" href="#doctor">Γνωρίστε τον Ιατρό</a>
       </div>
     </div>
@@ -1063,6 +1139,25 @@
   lbClose.addEventListener('click', shutLb);
   lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) shutLb(); });
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') shutLb(); });
+
+  // appointment CTA: confirm, then hand over to the booking page
+  (function(){
+    const BOOK_URL = 'https://entclinic.gr/book-appointment/';
+    const overlay = document.getElementById('bookOverlay');
+    const buttons = document.querySelectorAll('.btn-book');
+    let leaving = false;
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        e.preventDefault();
+        if(leaving) return;
+        leaving = true;
+        buttons.forEach(b=>b.classList.add('booked'));
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        setTimeout(()=>{ window.location.href = BOOK_URL; }, 3000);
+      });
+    });
+  })();
 
   // article expand / collapse
   document.querySelectorAll('.more-btn').forEach(btn=>{
