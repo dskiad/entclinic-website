@@ -478,6 +478,8 @@
   footer ul{list-style:none;margin:0;padding:0;}
   footer li{margin-bottom:11px;font-size:13.5px;}
   footer a:hover{color:var(--brass);}
+  .foot-legal a{border-bottom:1px solid rgba(164,124,76,0.55);padding-bottom:1px;}
+  .foot-legal a:hover{color:var(--brass);}
   .foot-bottom{
     border-top:1px solid rgba(250,248,243,0.12);padding-top:26px;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
@@ -1171,6 +1173,7 @@
           <li><a href="tel:2114182737">Τηλ: +30 211 418 27 37</a></li>
           <li><a href="tel:6936503658">Κιν: +30 6936 503 658</a></li>
           <li><a href="mailto:lmariolis@entclinic.gr">lmariolis@entclinic.gr</a></li>
+          <li>ΑΦΜ 052749528 — ΚΕΦΟΔΕ Αττικής</li>
         </ul>
       </div>
       <div>
@@ -1192,7 +1195,11 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Λάμπρος Μαριόλης, MD, MSc. Με επιφύλαξη κάθε νόμιμου δικαιώματος.</span>
+      <span>© <span id="footYear">2026</span> Λάμπρος Μαριόλης, MD, MSc. Με επιφύλαξη κάθε νόμιμου δικαιώματος.</span>
+      <span class="foot-legal">
+        <a href="privacy.html">Πολιτική Απορρήτου</a> ·
+        <a href="terms.html">Όροι Χρήσης</a>
+      </span>
       <span>Σχεδιασμός ιστοσελίδας — ENT Clinic</span>
     </div>
   </div>
@@ -1382,6 +1389,9 @@
       }
     });
   })();
+
+  const _fy = document.getElementById('footYear');
+  if(_fy) _fy.textContent = new Date().getFullYear();
 
   // appointment CTA: confirm, then hand over to the booking page
   (function(){
