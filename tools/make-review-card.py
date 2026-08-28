@@ -70,10 +70,11 @@ PAGE = """<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Κάρτες σχολίου — ENT Clinic</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Petrona:opsz,wght@8..30,400;8..30,600;8..30,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  @font-face{font-family:"Inter";src:url("../assets/fonts/Inter-subset.woff2") format("woff2");
+    font-weight:100 900;font-style:normal;font-display:swap;}
+  @font-face{font-family:"Petrona";src:url("../assets/fonts/Petrona-subset.woff2") format("woff2");
+    font-weight:100 900;font-style:normal;font-display:swap;}
   :root{
     --ink:#2E1D12; --ink-soft:#5A4433; --paper:#FAF8F3;
     --brass:#A47C4C; --brass-deep:#7A5626;
