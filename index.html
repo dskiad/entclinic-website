@@ -353,6 +353,48 @@
   }
   @media (prefers-reduced-motion: reduce){ .article-body{transition:none;} }
 
+  /* ---- SOS featured article ---- */
+  :root{ --alert:#9E3B2A; --alert-soft:#FBF1ED; }
+  .sos-card{
+    background:var(--card);border:1px solid var(--line);border-left:4px solid var(--alert);
+    box-shadow:var(--shadow);padding:38px 36px;margin-bottom:56px;
+  }
+  .sos-main{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;}
+  .sos-badge{
+    display:inline-flex;align-items:center;gap:8px;background:var(--alert);color:var(--paper);
+    font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;padding:6px 12px;border-radius:2px;
+  }
+  .sos-card h3{font-size:clamp(23px,2.6vw,31px);line-height:1.2;margin:18px 0 14px;}
+  .sos-lede{font-size:15px;color:var(--ink-soft);line-height:1.7;margin:0 0 22px;}
+  .sos-fig{margin:0;}
+  .sos-fig svg{width:100%;height:auto;display:block;}
+  .sos-fig figcaption{font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:12px;text-align:center;}
+  .sos-flags{border-left:3px solid var(--alert);background:var(--alert-soft);padding:18px 22px;margin:22px 0 0;}
+  .sos-flags strong{display:block;font-family:var(--sans);font-size:11px;font-weight:700;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--alert);margin-bottom:10px;}
+  .sos-flags ul{margin:0;padding-left:18px;}
+  .sos-flags li{font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:8px;}
+  .sos-flags li:last-child{margin-bottom:0;}
+  .sos-card.open .article-body{grid-template-rows:1fr;}
+  @media (max-width:820px){
+    .sos-main{grid-template-columns:1fr;gap:30px;}
+    .sos-card{padding:28px 22px;}
+  }
+  /* diagram */
+  .dg-face{fill:var(--paper-dim);stroke:var(--line);stroke-width:2;}
+  .dg-air{fill:var(--card);stroke:var(--ink-soft);stroke-width:1.6;}
+  .dg-orbit{fill:var(--paper);stroke:var(--ink-soft);stroke-width:1.5;}
+  .dg-cell{fill:var(--card);stroke:var(--ink-soft);stroke-width:1.2;}
+  .dg-muc{fill:#C9744F;opacity:.34;}
+  .dg-fluid{fill:#B4632F;opacity:.6;}
+  .dg-block{fill:var(--alert);}
+  .dg-flow{fill:none;stroke:var(--brass-deep);stroke-width:2;}
+  .dg-lead{fill:none;stroke:var(--line);stroke-width:1;}
+  .dg-lbl{font-family:var(--sans);font-size:11px;fill:var(--ink-soft);}
+  .dg-lbl.b{font-weight:700;fill:var(--ink);}
+  .dg-lbl.a{font-weight:700;fill:var(--alert);}
+
   /* ===== CTA banner ===== */
   .cta-banner{
     background:linear-gradient(120deg,var(--ink) 0%, #4A3220 100%);
@@ -704,6 +746,148 @@
       <h2>Τα Νέα μας</h2>
       <p>Σύντομα άρθρα και χρήσιμες πληροφορίες γύρω από την υγεία αυτιού, μύτης και λαιμού.</p>
     </div>
+    <article class="sos-card reveal">
+      <div class="sos-main">
+        <div>
+          <span class="sos-badge">SOS · Επείγοντα σημεία</span>
+          <h3>Ιγμορίτιδα: πότε περιμένουμε και πότε είναι επείγον</h3>
+          <p class="sos-lede">Η ιγμορίτιδα ξεκινά συνήθως ως απλή ίωση και στη μεγάλη της πλειονότητα
+          υποχωρεί μόνη της. Υπάρχει όμως μια μικρή ομάδα σημείων που δεν επιτρέπουν αναμονή, γιατί ο
+          κόλπος γειτονεύει άμεσα με τον οφθαλμικό κόγχο και τη βάση του κρανίου. Να τι πρέπει να
+          γνωρίζει κάθε ασθενής για να ξεχωρίσει το ένα από το άλλο.</p>
+          <button class="more-btn" type="button" aria-expanded="false" aria-controls="art-sos" data-shut="Διαβάστε το άρθρο →">Διαβάστε το άρθρο →</button>
+        </div>
+      <figure class="sos-fig">
+        <svg viewBox="0 0 760 470" role="img" aria-labelledby="dgT dgD" xmlns="http://www.w3.org/2000/svg">
+          <title id="dgT">Σχεδιάγραμμα των παραρρίνιων κόλπων σε μετωπιαία τομή</title>
+          <desc id="dgD">Στην αριστερή πλευρά της εικόνας το ιγμόρειο άντρο είναι φυσιολογικό, γεμάτο αέρα, με λεπτό βλεννογόνο και ελεύθερη παροχέτευση προς τη ρινική κοιλότητα. Στη δεξιά πλευρά ο βλεννογόνος είναι πρησμένος, το στόμιο παροχέτευσης φραγμένο και μέσα στον κόλπο έχει συσσωρευτεί έκκριμα. Κάτω από τους κόλπους φαίνονται οι ρίζες των άνω οπίσθιων δοντιών, που εφάπτονται στο δάπεδο του κόλπου.</desc>
+
+          <defs>
+            <path id="maxL" d="M350,204 L350,290 Q350,300 340,299 L272,289 Q258,287 256,273 L258,216 Q259,205 271,204 Z"/>
+            <path id="maxR" d="M410,204 L410,290 Q410,300 420,299 L488,289 Q502,287 504,273 L502,216 Q501,205 489,204 Z"/>
+            <clipPath id="clipL"><use href="#maxL"/></clipPath>
+            <clipPath id="clipR"><use href="#maxR"/></clipPath>
+          </defs>
+
+          <path class="dg-face" d="M380,22 C466,22 526,92 526,182 C526,302 460,404 380,416 C300,404 234,302 234,182 C234,92 294,22 380,22 Z"/>
+
+          <ellipse class="dg-air" cx="340" cy="94" rx="29" ry="20" transform="rotate(-10 340 94)"/>
+          <ellipse class="dg-air" cx="420" cy="94" rx="29" ry="20" transform="rotate(10 420 94)"/>
+
+          <ellipse class="dg-orbit" cx="303" cy="160" rx="35" ry="26"/>
+          <ellipse class="dg-orbit" cx="457" cy="160" rx="35" ry="26"/>
+          <circle cx="303" cy="160" r="11" fill="var(--line)"/>
+          <circle cx="457" cy="160" r="11" fill="var(--line)"/>
+
+          <rect class="dg-cell" x="358" y="136" width="20" height="14" rx="3"/>
+          <rect class="dg-cell" x="382" y="136" width="20" height="14" rx="3"/>
+          <rect class="dg-cell" x="358" y="154" width="20" height="14" rx="3"/>
+          <rect class="dg-cell" x="382" y="154" width="20" height="14" rx="3"/>
+          <rect class="dg-cell" x="358" y="172" width="20" height="13" rx="3"/>
+          <rect class="dg-cell" x="382" y="172" width="20" height="13" rx="3"/>
+
+          <path class="dg-air" d="M356,193 L404,193 L404,300 Q404,308 396,308 L364,308 Q356,308 356,300 Z"/>
+          <line x1="380" y1="195" x2="380" y2="306" stroke="var(--ink-soft)" stroke-width="1.6"/>
+          <path class="dg-cell" d="M357,212 Q371,218 359,228 Z"/>
+          <path class="dg-cell" d="M403,212 Q389,218 401,228 Z"/>
+          <path class="dg-cell" d="M357,248 Q371,254 359,264 Z"/>
+          <path class="dg-cell" d="M403,248 Q389,254 401,264 Z"/>
+
+          <use href="#maxL" class="dg-air"/>
+          <use href="#maxR" class="dg-air"/>
+
+          <!-- healthy side: thin lining, open ostium, drainage -->
+          <g clip-path="url(#clipL)">
+            <use href="#maxL" fill="none" stroke="#C9744F" stroke-width="7" opacity="0.30"/>
+          </g>
+          <path d="M351,207 L363,197" stroke="var(--card)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M350,210 L362,200 M352,203 L364,193" stroke="var(--ink-soft)" stroke-width="1.3" fill="none"/>
+          <path class="dg-flow" d="M330,242 C338,224 346,212 358,203"/>
+          <path d="M354,208 L361,200 L363,210 Z" fill="var(--brass-deep)"/>
+
+          <!-- inflamed side: thick lining, retained secretion, blocked ostium -->
+          <g clip-path="url(#clipR)">
+            <use href="#maxR" fill="none" stroke="#C9744F" stroke-width="26" opacity="0.42"/>
+            <rect class="dg-fluid" x="404" y="250" width="112" height="62"/>
+            <line x1="404" y1="250" x2="514" y2="250" stroke="#8A4A22" stroke-width="1.8"/>
+          </g>
+          <path d="M409,207 L397,197" stroke="var(--card)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M410,210 L398,200 M408,203 L396,193" stroke="var(--ink-soft)" stroke-width="1.3" fill="none"/>
+          <circle class="dg-block" cx="403" cy="202" r="6"/>
+          <path d="M400.4,199.4 L405.6,204.6 M405.6,199.4 L400.4,204.6" stroke="var(--paper)" stroke-width="1.6" stroke-linecap="round"/>
+
+          <!-- palate and upper teeth with roots reaching the sinus floor -->
+          <path d="M258,302 Q380,318 502,302" fill="none" stroke="var(--ink-soft)" stroke-width="1.6"/>
+          <g stroke="var(--ink-soft)" stroke-width="1.3" fill="var(--card)">
+            <path d="M272,312 L290,312 L288,332 Q281,336 274,332 Z"/><path d="M276,312 L278,299 M286,312 L284,299" stroke-width="1.6"/>
+            <path d="M298,314 L316,314 L314,334 Q307,338 300,334 Z"/><path d="M302,314 L304,300 M312,314 L310,300" stroke-width="1.6"/>
+            <path d="M324,315 L342,315 L340,335 Q333,339 326,335 Z"/><path d="M328,315 L330,301 M338,315 L336,301" stroke-width="1.6"/>
+            <path d="M418,315 L436,315 L434,335 Q427,339 420,335 Z"/><path d="M422,315 L424,301 M432,315 L430,301" stroke-width="1.6"/>
+            <path d="M444,314 L462,314 L460,334 Q453,338 446,334 Z"/><path d="M448,314 L450,300 M458,314 L456,300" stroke-width="1.6"/>
+            <path d="M470,312 L488,312 L486,332 Q479,336 472,332 Z"/><path d="M474,312 L476,299 M484,312 L482,299" stroke-width="1.6"/>
+          </g>
+
+          <!-- labels : left -->
+          <path class="dg-lead" d="M214,94 L312,94 M214,160 L267,160 M214,250 L258,250 M214,322 L270,318"/>
+          <text class="dg-lbl b" x="206" y="91" text-anchor="end">Μετωπιαίος κόλπος</text>
+          <text class="dg-lbl" x="206" y="105" text-anchor="end">(γεμάτος αέρα)</text>
+          <text class="dg-lbl b" x="206" y="164" text-anchor="end">Οφθαλμικός κόγχος</text>
+          <text class="dg-lbl b" x="206" y="240" text-anchor="end">Ιγμόρειο άντρο — φυσιολογικό</text>
+          <text class="dg-lbl" x="206" y="254" text-anchor="end">λεπτός βλεννογόνος, αέρας,</text>
+          <text class="dg-lbl" x="206" y="268" text-anchor="end">ελεύθερη παροχέτευση</text>
+          <text class="dg-lbl b" x="206" y="326" text-anchor="end">Ρίζες άνω οδόντων</text>
+
+          <!-- labels : right -->
+          <path class="dg-lead" d="M402,140 L468,112 L548,112 M406,206 L548,206 M506,256 L548,256 M400,304 L548,332"/>
+          <text class="dg-lbl b" x="556" y="109" text-anchor="start">Ηθμοειδείς κυψέλες</text>
+          <text class="dg-lbl a" x="556" y="203" text-anchor="start">Φραγμένο στόμιο</text>
+          <text class="dg-lbl a" x="556" y="217" text-anchor="start">παροχέτευσης</text>
+          <text class="dg-lbl a" x="556" y="253" text-anchor="start">Πρησμένος βλεννογόνος</text>
+          <text class="dg-lbl a" x="556" y="267" text-anchor="start">&amp; στάσιμο έκκριμα</text>
+          <text class="dg-lbl b" x="556" y="336" text-anchor="start">Ρινική κοιλότητα</text>
+          <text class="dg-lbl" x="556" y="350" text-anchor="start">&amp; ρινικό διάφραγμα</text>
+
+          <!-- legend -->
+          <g transform="translate(250,398)">
+            <rect class="dg-air" x="0" y="0" width="16" height="12" rx="2"/>
+            <text class="dg-lbl" x="24" y="10">Φυσιολογικός κόλπος</text>
+            <rect x="172" y="0" width="16" height="12" rx="2" fill="#B4632F" opacity="0.6"/>
+            <text class="dg-lbl" x="196" y="10">Φλεγμονή &amp; έκκριμα</text>
+          </g>
+        </svg>
+        <figcaption>Μετωπιαία τομή των παραρρίνιων κόλπων. Αριστερά ο φυσιολογικός κόλπος, δεξιά η εικόνα της ιγμορίτιδας: πρησμένος βλεννογόνος, φραγμένο στόμιο, στάσιμο έκκριμα. Σχηματική απεικόνιση.</figcaption>
+      </figure>
+      </div>
+      <div class="article-body" id="art-sos">
+        <div class="inner">
+          <h4>Τι ακριβώς είναι</h4>
+          <p>Γύρω από τη ρινική κοιλότητα υπάρχουν αεροφόρες κοιλότητες μέσα στα οστά του προσώπου, οι παραρρίνιοι κόλποι. Το ιγμόρειο, ή γναθιαίο άντρο, είναι ο μεγαλύτερος από αυτούς και βρίσκεται πίσω από το ζυγωματικό. Είναι επενδεδυμένο με βλεννογόνο που παράγει βλέννη και τη μετακινεί, με μικροσκοπικούς κροσσούς, προς ένα μικρό στόμιο που παροχετεύει στη μύτη. Όσο το στόμιο είναι ανοιχτό, το σύστημα αυτοκαθαρίζεται.</p>
+          <h4>Πώς ξεκινά</h4>
+          <p>Σχεδόν πάντα από μια απλή ίωση. Ο βλεννογόνος πρήζεται, το στόμιο στενεύει και τελικά φράσσει, η βλέννη μένει στάσιμη και ο αερισμός του κόλπου σταματά. Σε αυτό το κλειστό περιβάλλον τα μικρόβια βρίσκουν ευκαιρία να πολλαπλασιαστούν. Γι' αυτό, στην πράξη, δεν μιλάμε για μεμονωμένη «ιγμορίτιδα» αλλά για ρινοκολπίτιδα: μύτη και κόλποι πάσχουν μαζί.</p>
+          <h4>Τα συμπτώματα</h4>
+          <p>Αίσθημα βάρους ή πίεσης στο ζυγωματικό και γύρω από τα μάτια, που συχνά επιδεινώνεται όταν σκύβετε μπροστά. Μπούκωμα, παχύρρευστη έκκριση, οπισθορρινική καταρροή, μείωση ή απώλεια της όσφρησης, πόνος που μπορεί να αντανακλά στα άνω δόντια. Ο πυρετός δεν είναι απαραίτητος.</p>
+          <h4>Πότε περνά μόνη της και πότε όχι</h4>
+          <p>Τις πρώτες ημέρες η εικόνα είναι ιογενής και η μεγάλη πλειονότητα υποχωρεί μέσα σε επτά έως δέκα ημέρες χωρίς αντιβιοτικό. Τρία είναι τα σημεία που στρέφουν προς βακτηριακή επιπλοκή: συμπτώματα που επιμένουν πάνω από δέκα ημέρες χωρίς καμία βελτίωση· η «διπλή επιδείνωση», δηλαδή βελτίωση και κατόπιν σαφής χειροτέρευση· ή βαριά εικόνα εξαρχής, με υψηλό πυρετό και πυώδη έκκριση για τρεις με τέσσερις συνεχείς ημέρες. Το χρώμα της έκκρισης από μόνο του δεν αποτελεί κριτήριο.</p>
+          <div class="sos-flags">
+            <strong>SOS — σημεία που δεν περιμένουν</strong>
+            <ul>
+              <li>Οίδημα, ερυθρότητα ή πόνος στο βλέφαρο και γύρω από τον οφθαλμό.</li>
+              <li>Προπέτεια του βολβού, διπλωπία, θάμβος ή μείωση της όρασης, περιορισμός στην κίνηση του ματιού.</li>
+              <li>Έντονη κεφαλαλγία με υψηλό πυρετό, σύγχυση, υπνηλία, αυχενική δυσκαμψία ή έμετοι.</li>
+              <li>Οίδημα ή ευαισθησία στο μέτωπο.</li>
+              <li>Οποιοδήποτε νευρολογικό σημείο, όπως αδυναμία άκρου ή σπασμοί.</li>
+            </ul>
+            <ul style="margin-top:10px">
+              <li><b>Τα παραπάνω σημαίνουν άμεση εκτίμηση την ίδια ώρα, όχι αναμονή.</b> Είναι σπάνια, όμως υποδηλώνουν επέκταση της φλεγμονής προς τον οφθαλμικό κόγχο ή ενδοκρανιακά — ο κόλπος γειτονεύει άμεσα και με τα δύο.</li>
+            </ul>
+          </div>
+          <h4>Τι βοηθά</h4>
+          <p>Οι ρινικές πλύσεις με φυσιολογικό ορό είναι το πιο υποτιμημένο και συγχρόνως από τα πιο χρήσιμα μέτρα: απομακρύνουν τις εκκρίσεις και βελτιώνουν τη λειτουργία του βλεννογόνου. Τα ενδορρινικά κορτικοστεροειδή μειώνουν το οίδημα και διευκολύνουν το άνοιγμα του στομίου. Τα αποσυμφορητικά σπρέι ανακουφίζουν, αλλά δεν πρέπει να ξεπερνούν τις λίγες ημέρες, γιατί προκαλούν φαινόμενο εξάρτησης με μόνιμο μπούκωμα. Το αντιβιοτικό έχει θέση μόνο όταν πληρούνται τα παραπάνω κριτήρια.</p>
+          <h4>Πότε χρειάζεται ωτορινολαρυγγολογική εκτίμηση</h4>
+          <p>Όταν τα επεισόδια υποτροπιάζουν ή τα συμπτώματα διαρκούν πέραν των δώδεκα εβδομάδων· όταν η εικόνα είναι σταθερά μονόπλευρη· όταν υπάρχει αιμορραγική έκκριση ή επίμονη διαταραχή της όσφρησης· ή όταν η θεραπεία αποτυγχάνει. Η ενδοσκόπηση της μύτης δίνει άμεση εικόνα της περιοχής του στομίου. Η αξονική τομογραφία δεν είναι εξέταση ρουτίνας — ζητείται για υποψία επιπλοκής ή για χειρουργικό σχεδιασμό. Αξίζει να σημειωθεί ότι σημαντικό ποσοστό των μονόπλευρων ιγμορίτιδων έχει οδοντογενή αιτία: οι ρίζες των άνω οπίσθιων δοντιών εφάπτονται στο δάπεδο του κόλπου, όπως φαίνεται και στο σχεδιάγραμμα, και μια περιοδοντίτιδα ή μια εμφύτευση μπορεί να είναι η πραγματική αφετηρία.</p>
+        </div>
+      </div>
+    </article>
     <div class="news-grid reveal">
       <div class="news-card">
         <div class="date">Θυρεοειδής</div>
@@ -983,12 +1167,13 @@
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') shutLb(); });
 
   // article expand / collapse
-  document.querySelectorAll('.news-card .more-btn').forEach(btn=>{
+  document.querySelectorAll('.more-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      const card = btn.closest('.news-card');
+      const card = btn.closest('.news-card, .sos-card');
       const open = card.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(open));
-      btn.textContent = open ? 'Λιγότερα ↑' : 'Περισσότερα →';
+      const shut = btn.dataset.shut || 'Περισσότερα →';
+      btn.textContent = open ? 'Λιγότερα ↑' : shut;
     });
   });
 </script>
