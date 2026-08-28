@@ -329,6 +329,15 @@
     position:absolute;top:14px;right:18px;font-family:var(--sans);
     font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--muted);
   }
+  .testi-src{
+    display:inline-block;margin-top:9px;font-family:var(--sans);font-size:10.5px;
+    font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:2px;padding:3px 8px;text-decoration:none;
+  }
+  a.testi-src:hover{color:var(--brass-deep);border-color:var(--brass);}
+  .testi-provenance{
+    margin-top:14px;font-size:12.5px;color:var(--muted);line-height:1.6;
+  }
   .testi-date{
     font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;
     text-transform:uppercase;color:var(--brass-deep);margin-top:10px;
@@ -828,6 +837,10 @@
       <h2>Τι λένε όσοι μας επισκέφθηκαν</h2>
       <p>Σχόλια ασθενών, με τα αρχικά τους και την ημερομηνία της επίσκεψης. Δημοσιεύονται
       αφού ελεγχθούν, ώστε να μη δημοσιοποιηθούν κατά λάθος στοιχεία υγείας.</p>
+      <p class="testi-provenance">Όλα τα σχόλια προέρχονται από ανθρώπους που επισκέφθηκαν
+      πραγματικά το ιατρείο. Δημοσιεύονται αυτούσια, όπως γράφτηκαν, είτε στάλθηκαν μέσω της
+      φόρμας της σελίδας είτε δημοσιεύθηκαν από τους ίδιους σε πλατφόρμα αξιολόγησης — στη
+      δεύτερη περίπτωση αναφέρεται η πηγή και δίνεται σύνδεσμος στην αρχική κριτική.</p>
     </div>
 
     <div class="testi-wrap" id="testiWrap">
@@ -1215,7 +1228,14 @@
      ΣΧΟΛΙΑ ΑΣΘΕΝΩΝ
      --------------------------------------------------------------------------
      Προσθέστε εδώ ΜΟΝΟ πραγματικά σχόλια, όπως τα έστειλαν οι ασθενείς.
-     Κάθε εγγραφή: { date:"YYYY-MM-DD", who:"αρχικά", text:"το σχόλιο" }
+     Κάθε εγγραφή:
+       {
+         date:"2026-06-14",              // ΥΥΥΥ-ΜΜ-ΗΗ· κενό αν δεν είναι γνωστή
+         who:"Μ.Κ.",                     // όνομα ή αρχικά, όπως τα έδωσε ο ασθενής
+         text:"το σχόλιο, αυτούσιο",
+         source:"Google",                // προαιρετικό: Google, doctoranytime.gr, Ιατρείο
+         url:"https://…"                 // προαιρετικό: σύνδεσμος στην αρχική κριτική
+       }
      Η σειρά μέσα στον πίνακα δεν έχει σημασία — ταξινομούνται αυτόματα.
      Η αρίθμηση ξεκινά από το 1 για το παλαιότερο και αυξάνεται προς το νεότερο.
      Εμφανίζονται τα 6 νεότερα· τα υπόλοιπα ανοίγουν με το κουμπί.
@@ -1260,6 +1280,12 @@
            +   '<p>' + esc(r.text) + '</p>'
            +   '<div class="who">' + esc(r.who) + '</div>'
            +   (d ? '<div class="testi-date">' + d + '</div>' : '')
+           +   (r.source
+                 ? (r.url
+                     ? '<a class="testi-src" href="' + esc(r.url) + '" target="_blank" rel="noopener nofollow">'
+                       + esc(r.source) + ' \u2197</a>'
+                     : '<span class="testi-src">' + esc(r.source) + '</span>')
+                 : '')
            + '</div>';
     }
 
