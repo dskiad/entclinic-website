@@ -4,6 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Χειρουργός Κεφαλής &amp; Τραχήλου</title>
+<meta name="description" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.">
+<meta name="author" content="Λάμπρος Μαριόλης, MD, MSc">
+<meta name="theme-color" content="#2E1D12">
+
+<!-- Εικονίδια -->
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Προεπισκόπηση κατά την κοινοποίηση του συνδέσμου (Facebook, Viber, WhatsApp, LinkedIn)
+     ΠΡΟΣΟΧΗ: όταν ο ιστότοπος μεταφερθεί σε δικό του domain, αλλάξτε ΟΛΕΣ τις παρακάτω
+     απόλυτες διευθύνσεις — οι πλατφόρμες δεν δέχονται σχετικά μονοπάτια. -->
+<link rel="canonical" href="https://dskiad.github.io/entclinic-website/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="el_GR">
+<meta property="og:site_name" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος">
+<meta property="og:title" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Κορυδαλλός">
+<meta property="og:description" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.">
+<meta property="og:url" content="https://dskiad.github.io/entclinic-website/">
+<meta property="og:image" content="https://dskiad.github.io/entclinic-website/assets/social-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος, Κορυδαλλός">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Κορυδαλλός">
+<meta name="twitter:description" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.">
+<meta name="twitter:image" content="https://dskiad.github.io/entclinic-website/assets/social-card.jpg">
+
 <link rel="preload" href="assets/fonts/Inter-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/EBGaramond-subset.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -200,6 +228,7 @@
   .doc-gallery .g-item{border-radius:2px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1;}
   .doc-gallery .g-item img{width:100%;height:100%;object-fit:cover;}
   .doc-gallery .g-item.tall{aspect-ratio:4/5;}
+  .doc-gallery .g-item.wide{grid-column:1 / -1;aspect-ratio:3/2;}
 
   /* lightbox */
   .lightbox{
@@ -502,6 +531,12 @@
     background:linear-gradient(120deg,var(--ink) 0%, #4A3220 100%);
     color:var(--paper);text-align:center;padding:90px 0;
   }
+  .cta-portrait{
+    width:132px;height:132px;border-radius:50%;overflow:hidden;margin:0 auto 26px;
+    border:2px solid rgba(164,124,76,0.8);box-shadow:0 20px 44px -20px rgba(0,0,0,0.85);
+  }
+  .cta-portrait img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.6);transform-origin:center 30%;}
+  @media (max-width:620px){ .cta-portrait{width:104px;height:104px;margin-bottom:20px;} }
   .cta-banner .eyebrow{justify-content:center;color:var(--brass);}
   .cta-banner .eyebrow::before{display:none;}
   .cta-banner h2{color:var(--paper);font-size:clamp(28px,3.6vw,40px);margin:18px 0 30px;max-width:680px;margin-left:auto;margin-right:auto;}
@@ -629,6 +664,61 @@
   }
   .scrim.show{opacity:1;pointer-events:auto;}
 </style>
+
+<!-- Δομημένα δεδομένα (schema.org): βοηθούν τη Google να εμφανίσει σωστά το ιατρείο
+     στην τοπική αναζήτηση και στους χάρτες. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "@id": "https://dskiad.github.io/entclinic-website/#iatreio",
+  "name": "Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος",
+  "alternateName": "Lampros Mariolis ENT",
+  "description": "Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.",
+  "url": "https://dskiad.github.io/entclinic-website/",
+  "image": "https://dskiad.github.io/entclinic-website/assets/social-card.jpg",
+  "medicalSpecialty": "Otolaryngologic",
+  "telephone": "+302114182737",
+  "email": "lmariolis@entclinic.gr",
+  "currenciesAccepted": "EUR",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Δ. Διαμαντίδη 6 & Πλ. Ελευθερίας 10",
+    "addressLocality": "Κορυδαλλός",
+    "postalCode": "18120",
+    "addressRegion": "Αττική",
+    "addressCountry": "GR"
+  },
+  "areaServed": { "@type": "City", "name": "Κορυδαλλός" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday"], "opens": "09:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Friday"], "opens": "09:00", "closes": "20:00" }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Λάμπρος Μαριόλης",
+    "honorificSuffix": "MD, MSc",
+    "jobTitle": "Χειρουργός Ωτορινολαρυγγολόγος Παίδων & Ενηλίκων",
+    "image": "https://dskiad.github.io/entclinic-website/assets/photos/portrait-suit.jpg",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Università degli Studi di Catania — Ιατρική Σχολή" },
+      { "@type": "CollegeOrUniversity", "name": "Πανεπιστήμιο Πατρών & ΕΚΠΑ — ΔΔΠΜΣ Παθήσεων Ρινός, Βάσης Κρανίου και Προσωπικής Χώρας" }
+    ],
+    "memberOf": { "@type": "Organization", "name": "Ιατρικός Σύλλογος Πειραιά" },
+    "identifier": [
+      { "@type": "PropertyValue", "name": "Αρ. μητρώου ιατρού, Ι.Σ. Πειραιά", "value": "9251" },
+      { "@type": "PropertyValue", "name": "Αρ. μητρώου ιατρείου, Ι.Σ. Πειραιά", "value": "3181" }
+    ]
+  },
+  "availableService": [
+    { "@type": "MedicalTest", "name": "Ακοολογικός έλεγχος (ακοόγραμμα, τυμπανόγραμμα)" },
+    { "@type": "MedicalTest", "name": "Ενδοσκόπηση ρινός, ρινοφάρυγγα και λάρυγγα" },
+    { "@type": "MedicalTest", "name": "Έλεγχος ιλίγγου και αιθουσαίου συστήματος" },
+    { "@type": "MedicalProcedure", "name": "Χειρουργική κεφαλής και τραχήλου" },
+    { "@type": "MedicalProcedure", "name": "Παιδοωτορινολαρυγγολογία" }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -737,6 +827,14 @@
               <source srcset="assets/photos/office-desk.webp" type="image/webp">
               <img src="assets/photos/office-desk.jpg" width="1700" height="1133"
                    loading="lazy" decoding="async" alt="Το γραφείο του ιατρείου με τη βιβλιοθήκη ιατρικών συγγραμμάτων">
+            </picture>
+            <span class="zoom-tag">Προβολή</span>
+          </div>
+          <div class="g-item wide zoomable lb-trigger" data-caption="Τίτλοι σπουδών και ιατρικής ειδικότητας, στο γραφείο του ιατρείου">
+            <picture>
+              <source srcset="assets/photos/office-diplomas.webp" type="image/webp">
+              <img src="assets/photos/office-diplomas.jpg" width="1700" height="1136"
+                   loading="lazy" decoding="async" alt="Οι κορνιζαρισμένοι τίτλοι σπουδών και ο τίτλος ιατρικής ειδικότητας, αναρτημένοι πάνω από το γραφείο του ιατρείου">
             </picture>
             <span class="zoom-tag">Προβολή</span>
           </div>
@@ -895,7 +993,7 @@
         <div class="g-item tall zoomable lb-trigger" data-caption="Η αίθουσα αναμονής του ιατρείου">
           <picture>
               <source srcset="assets/photos/waiting-room.webp" type="image/webp">
-              <img src="assets/photos/waiting-room.jpg" width="1700" height="1133"
+              <img src="assets/photos/waiting-room.jpg" width="1700" height="1135"
                    loading="lazy" decoding="async" alt="Η αίθουσα αναμονής, με πολυθρόνες και φυσικό φως">
             </picture>
           <span class="zoom-tag">Προβολή</span>
@@ -903,7 +1001,7 @@
         <div class="g-item tall zoomable lb-trigger" data-caption="Αίθουσα ενδοσκοπικού &amp; μικροσκοπικού ελέγχου">
           <picture>
               <source srcset="assets/photos/exam-room.webp" type="image/webp">
-              <img src="assets/photos/exam-room.jpg" width="1700" height="1133"
+              <img src="assets/photos/exam-room.jpg" width="1700" height="1135"
                    loading="lazy" decoding="async" alt="Το εξεταστήριο με χειρουργικό μικροσκόπιο και ενδοσκοπικό πύργο">
             </picture>
           <span class="zoom-tag">Προβολή</span>
@@ -919,8 +1017,16 @@
         <div class="g-item tall zoomable lb-trigger" data-caption="Η υποδοχή του ιατρείου">
           <picture>
               <source srcset="assets/photos/reception.webp" type="image/webp">
-              <img src="assets/photos/reception.jpg" width="1700" height="1133"
+              <img src="assets/photos/reception.jpg" width="1700" height="1135"
                    loading="lazy" decoding="async" alt="Η υποδοχή του ιατρείου">
+            </picture>
+          <span class="zoom-tag">Προβολή</span>
+        </div>
+        <div class="g-item wide zoomable lb-trigger" data-caption="Από το γραφείο προς την αίθουσα διαγνωστικών πράξεων">
+          <picture>
+              <source srcset="assets/photos/office-view.webp" type="image/webp">
+              <img src="assets/photos/office-view.jpg" width="1700" height="1133"
+                   loading="lazy" decoding="async" alt="Θέα από το γραφείο προς τον διπλανό χώρο με τον ενδοσκοπικό πύργο, με τη βιβλιοθήκη ωτορινολαρυγγολογικών συγγραμμάτων δεξιά">
             </picture>
           <span class="zoom-tag">Προβολή</span>
         </div>
@@ -1259,6 +1365,13 @@
 <!-- ================= CTA BANNER ================= -->
 <section class="cta-banner">
   <div class="wrap">
+    <div class="cta-portrait">
+      <picture>
+        <source srcset="assets/photos/portrait-suit-dark.webp" type="image/webp">
+        <img src="assets/photos/portrait-suit-dark.jpg" width="1400" height="1399"
+             loading="lazy" decoding="async" alt="Ο Λάμπρος Μαριόλης, MD, MSc">
+      </picture>
+    </div>
     <div class="eyebrow">Κλείστε ραντεβού σήμερα</div>
     <h2>Η σωστή διάγνωση ξεκινά με μία συζήτηση. Μιλήστε μαζί μας.</h2>
     <div class="hero-cta" style="justify-content:center;">
