@@ -331,6 +331,21 @@
   .hours-row.closed span:last-child{color:var(--brass);font-weight:600;}
   .addr-block{margin-top:26px;padding-top:22px;border-top:1px solid rgba(250,248,243,0.14);font-size:13.5px;color:rgba(250,248,243,0.78);}
   .addr-block a{display:block;margin-top:6px;color:var(--brass);font-weight:600;}
+  .licence-block{margin-top:26px;padding-top:22px;border-top:1px solid rgba(250,248,243,0.14);}
+  .licence-block h4{
+    font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--brass);margin:0 0 14px;
+  }
+  .licence-fig{
+    border-radius:2px;overflow:hidden;cursor:zoom-in;position:relative;
+    box-shadow:0 12px 26px rgba(0,0,0,0.35);
+  }
+  .licence-fig img{width:100%;height:auto;display:block;transition:transform .5s ease;}
+  .licence-fig:hover img{transform:scale(1.03);}
+  .licence-list{display:grid;gap:9px;margin:18px 0 0;}
+  .licence-list > div{display:flex;justify-content:space-between;gap:16px;font-size:13px;}
+  .licence-list dt{color:rgba(250,248,243,0.68);margin:0;}
+  .licence-list dd{margin:0;color:var(--paper);font-weight:600;white-space:nowrap;}
   @media (max-width:900px){ .space-grid{grid-template-columns:1fr;} }
 
   /* ===== Testimonials ===== */
@@ -845,6 +860,22 @@
           Δ. Διαμαντίδη 6 &amp; Πλ. Ελευθερίας 10, Κορυδαλλός 18120
           <a href="https://www.google.com/maps/place/%CE%94.%20%CE%94%CE%B9%CE%B1%CE%BC%CE%B1%CE%BD%CF%84%CE%AF%CE%B4%CE%B7%206%20%26%20%CE%A0%CE%BB.%20%CE%95%CE%BB%CE%B5%CF%85%CE%B8%CE%B5%CF%81%CE%AF%CE%B1%CF%82%2010%2C%20%CE%9A%CE%BF%CF%81%CF%85%CE%B4%CE%B1%CE%BB%CE%BB%CF%8C%CF%82%2018120/@37.9772195,23.6490417,17z" target="_blank" rel="noopener">Δείτε στον χάρτη →</a>
         </div>
+
+        <div class="licence-block">
+          <h4>Νόμιμη λειτουργία</h4>
+          <div class="licence-fig lb-trigger" data-caption="Βεβαίωση νόμιμης λειτουργίας ιατρείου — Ιατρικός Σύλλογος Πειραιά, αρ. μητρώου ιατρείου 3181">
+            <picture>
+              <source srcset="assets/nomimo-iatreio.webp" type="image/webp">
+              <img src="assets/nomimo-iatreio.jpg" width="1230" height="858" loading="lazy" decoding="async"
+                   alt="Πινακίδα «Νόμιμο Ιατρείο» του Ιατρικού Συλλόγου Πειραιά, στο όνομα Μαριόλης Λάμπρος, με αριθμό μητρώου ιατρείου 3181.">
+            </picture>
+          </div>
+          <dl class="licence-list">
+            <div><dt>Αρ. μητρώου ιατρείου</dt><dd>3181</dd></div>
+            <div><dt>Αρ. μητρώου ιατρού</dt><dd>9251</dd></div>
+            <div><dt>Ιατρικός Σύλλογος</dt><dd>Πειραιά</dd></div>
+          </dl>
+        </div>
       </div>
     </div>
   </div>
@@ -1174,6 +1205,7 @@
           <li><a href="tel:6936503658">Κιν: +30 6936 503 658</a></li>
           <li><a href="mailto:lmariolis@entclinic.gr">lmariolis@entclinic.gr</a></li>
           <li>ΑΦΜ 052749528 — ΚΕΦΟΔΕ Αττικής</li>
+          <li>Ι.Σ. Πειραιά — αρ. μητρώου ιατρού 9251, ιατρείου 3181</li>
         </ul>
       </div>
       <div>
@@ -1239,7 +1271,7 @@
   document.querySelectorAll('.lb-trigger').forEach(el=>{
     el.addEventListener('click', ()=>{
       const img = el.querySelector('img');
-      lbImg.src = img.src;
+      lbImg.src = img.currentSrc || img.src;
       lbImg.alt = img.alt;
       lbCaption.textContent = el.getAttribute('data-caption') || img.alt;
       lightbox.classList.add('open');
