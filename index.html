@@ -338,6 +338,19 @@
     margin-top:36px;padding:26px 30px;border-left:3px solid var(--brass);
     background:var(--paper-dim);font-size:14.5px;color:var(--ink-soft);line-height:1.7;
   }
+  /* Πορτραίτο 300x400 δίπλα στην εισαγωγή της ενότητας «Μια ειδικότητα σε
+     συνεχή εξέλιξη». Κάτω από 900px πέφτει κάτω από το κείμενο και κεντράρεται. */
+  .spec-intro{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:center;margin-bottom:56px;}
+  .spec-intro .section-head{margin-bottom:0;}
+  .spec-photo{
+    margin:0;width:300px;height:400px;border-radius:2px;
+    box-shadow:var(--shadow);background:var(--paper-dim);
+  }
+  .spec-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  @media (max-width:900px){
+    .spec-intro{grid-template-columns:1fr;gap:34px;margin-bottom:44px;}
+    .spec-photo{margin:0 auto;}
+  }
   @media (max-width:900px){ .science-grid{grid-template-columns:1fr 1fr;} }
   @media (max-width:560px){ .science-grid{grid-template-columns:1fr;} }
 
@@ -883,10 +896,20 @@
 <!-- ================= SCIENTIFIC CURRENCY / GLOBAL PICTURE ================= -->
 <section>
   <div class="wrap">
+    <div class="spec-intro">
     <div class="section-head reveal">
       <div class="eyebrow">Επιστημονική Ενημέρωση</div>
       <h2>Μια ειδικότητα σε συνεχή εξέλιξη</h2>
       <p>Η Ωτορινολαρυγγολογία εξελίσσεται διαρκώς, καθώς οι παθήσεις που καλύπτει αφορούν εκατοντάδες εκατομμύρια ανθρώπους παγκοσμίως. Η παρακολούθηση της διεθνούς βιβλιογραφίας και των σύγχρονων κατευθυντήριων οδηγιών αποτελεί βασική προτεραιότητα του ιατρείου.</p>
+    </div>
+      <figure class="spec-photo reveal zoomable lb-trigger" data-caption="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Χειρουργός Κεφαλής &amp; Τραχήλου">
+        <picture>
+          <source srcset="assets/photos/portrait-coat-smiling.webp" type="image/webp">
+          <img src="assets/photos/portrait-coat-smiling.jpg" width="300" height="400"
+               loading="lazy" decoding="async" alt="Ο Λάμπρος Μαριόλης, MD, MSc, με λευκή ιατρική ρόμπα πάνω από χειρουργική στολή">
+        </picture>
+        <span class="zoom-tag">Προβολή</span>
+      </figure>
     </div>
     <div class="science-grid reveal">
       <div class="science-card">
