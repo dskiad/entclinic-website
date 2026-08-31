@@ -119,8 +119,15 @@
      max-width:1180px τα στοιχεία του μενού έσπαγαν σε δύο γραμμές σε κάθε
      οθόνη, ακόμη και στις πολύ πλατιές. */
   header .wrap{max-width:1260px;}
-  nav.primary{gap:24px;}
+  nav.primary{gap:20px;}
   nav.primary a{white-space:nowrap;}
+  /* Το τηλέφωνο είχε το ίδιο κενό με τις επιλογές του μενού, οπότε διαβαζόταν
+     σαν ακόμη μία επιλογή· η κάθετη γραμμή το ξεχωρίζει ως ομάδα δράσης. */
+  .header-phone{
+    border-left:1px solid var(--line);
+    padding-left:22px;
+    letter-spacing:.02em;
+  }
   @media (max-width:1240px){
     nav.primary{gap:20px;}
     nav.primary a{font-size:12.5px;letter-spacing:.03em;}
@@ -482,6 +489,9 @@
   .warn-block li{font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:8px;}
   .warn-block li:last-child{margin-bottom:0;}
   .feature-card.open .article-body{grid-template-rows:1fr;}
+  /* Το εκτενές άρθρο πιάνει όλο το πλάτος της κάρτας, που σε desktop
+     έφτανε τους ~148 χαρακτήρες ανά γραμμή· το άνετο εύρος είναι 60-80. */
+  .feature-card .article-body .inner{max-width:620px;}
   @media (max-width:820px){
     .feature-main{grid-template-columns:1fr;gap:30px;}
     .feature-card{padding:28px 22px;}
