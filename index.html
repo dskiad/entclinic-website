@@ -194,11 +194,14 @@
     font-size:17.5px;color:var(--ink-soft);max-width:480px;margin:0 0 34px;
   }
   .hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
-  .hero-figure{position:relative;}
+  /* Η κύρια φωτογραφία ζητήθηκε στα 300x400. Το πλαίσιο κλειδώνει σε αυτό το
+     μέγεθος και κεντράρεται μέσα στη στήλη του, ενώ το αρχείο είναι 900x1200
+     ώστε να μένει καθαρό σε οθόνες retina. */
+  .hero-figure{position:relative;width:300px;margin-left:auto;margin-right:auto;}
   .hero-figure .frame{
     position:relative;border-radius:2px;overflow:hidden;
     box-shadow:var(--shadow);
-    aspect-ratio:4/5;
+    width:300px;height:400px;
     cursor:zoom-in;
   }
   .hero-figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
@@ -247,16 +250,16 @@
     color:rgba(250,248,243,0.75);font-size:13px;letter-spacing:.04em;
   }
   .hero-figure .caption{
-    position:absolute;left:-1px;bottom:24px;
-    background:var(--card);padding:16px 22px;
+    position:absolute;left:-1px;bottom:18px;
+    background:var(--card);padding:13px 18px;
     border-left:3px solid var(--brass);
-    max-width:78%;box-shadow:var(--shadow);
+    max-width:none;right:-1px;box-shadow:var(--shadow);
   }
   .hero-figure .caption strong{display:block;font-family:var(--serif);font-size:16px;}
   .hero-figure .caption span{font-size:12px;color:var(--ink-soft);}
   @media (max-width:980px){
     .hero-grid{grid-template-columns:1fr;}
-    .hero-figure{order:-1;max-width:340px;margin:0 auto;}
+    .hero-figure{order:-1;margin:0 auto;}
     .hero-watermark{display:none;}
   }
 
@@ -785,9 +788,9 @@
     <div class="hero-figure reveal in">
       <div class="frame lb-trigger" data-caption="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Χειρουργός Κεφαλής &amp; Τραχήλου">
         <picture>
-              <source srcset="assets/photos/portrait-white-coat.webp" type="image/webp">
-              <img src="assets/photos/portrait-white-coat.jpg" width="1400" height="1400"
-                   decoding="async" alt="Ο Λάμπρος Μαριόλης, MD, MSc, με λευκή ιατρική ρόμπα">
+              <source srcset="assets/photos/portrait-hero.webp" type="image/webp">
+              <img src="assets/photos/portrait-hero.jpg" width="300" height="400"
+                   decoding="async" alt="Ο Λάμπρος Μαριόλης, MD, MSc, Ωτορινολαρυγγολόγος">
             </picture>
       </div>
       <div class="caption">
