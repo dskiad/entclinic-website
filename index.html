@@ -289,7 +289,7 @@
 
   /* ===== About doctor ===== */
   .about-grid{
-    display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start;
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:stretch;
   }
   .about-grid h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:22px;line-height:1.12;}
   .about-grid .role{color:var(--brass-deep);font-weight:600;font-size:15px;margin-bottom:20px;}
@@ -316,7 +316,18 @@
     font-size:11.5px;font-weight:600;letter-spacing:.03em;color:var(--ink);
     border:1px solid var(--line);padding:7px 14px;border-radius:2px;background:var(--paper-dim);
   }
-  .sig-block{position:sticky;top:120px;}
+  /* Μία φωτογραφία του ιατρού, τόσο ψηλή όσο το κείμενο δεξιά: από την κορυφή
+     της ενότητας έως ακριβώς πάνω από τον πίνακα σπουδών. Το πλαίσιο μεγαλώνει
+     με το κείμενο (flex:1), και η φωτογραφία μπαίνει με object-fit:contain
+     πατώντας στη βάση — έτσι δεν κόβεται ποτέ, ενώ το φόντο του πλαισίου είναι
+     το ίδιο επίπεδο γκρι του στούντιο (#A5A7A4), ώστε να μη φαίνεται ένωση. */
+  .doc-aside{display:flex;}
+  .sig-block{display:flex;flex-direction:column;width:100%;}
+  .doc-portrait{
+    margin:0 0 26px;flex:1 1 auto;min-height:460px;
+    border-radius:2px;box-shadow:var(--shadow);background:#A5A7A4;
+  }
+  .doc-portrait img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;}
   .sig-block .thumb{border-radius:2px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:20px;}
   .train-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
   .train-list li{
@@ -325,7 +336,9 @@
   .train-list li b{color:var(--ink);font-weight:600;min-width:105px;flex:none;}
   @media (max-width:900px){
     .about-grid{grid-template-columns:1fr;}
-    .sig-block{position:static;}
+    .doc-aside{display:block;}
+    .sig-block{display:block;}
+    .doc-portrait{flex:none;min-height:0;aspect-ratio:1200/1425;max-width:460px;margin:0 auto 26px;}
   }
 
   /* ===== Global picture / scientific currency ===== */
@@ -836,34 +849,17 @@
 <!-- ================= ABOUT DOCTOR ================= -->
 <section id="doctor">
   <div class="wrap about-grid">
-    <div class="reveal">
+    <div class="reveal doc-aside">
       <div class="sig-block">
-        <div class="doc-gallery">
-          <div class="g-item tall zoomable lb-trigger" data-caption="Λάμπρος Μαριόλης, MD, MSc — στο ιατρείο">
-            <picture>
-              <source srcset="assets/photos/portrait-scrubs.webp" type="image/webp">
-              <img src="assets/photos/portrait-scrubs.jpg" width="1400" height="1400" style="object-position:top;"
-                   loading="lazy" decoding="async" alt="Ο Λάμπρος Μαριόλης με χειρουργική στολή, έτοιμος για επέμβαση">
-            </picture>
-            <span class="zoom-tag">Προβολή</span>
-          </div>
-          <div class="g-item zoomable lb-trigger" data-caption="Το προσωπικό ιατρείο του Δρ. Μαριόλη">
-            <picture>
-              <source srcset="assets/photos/office-desk.webp" type="image/webp">
-              <img src="assets/photos/office-desk.jpg" width="1700" height="1133"
-                   loading="lazy" decoding="async" alt="Το γραφείο του ιατρείου με τη βιβλιοθήκη ιατρικών συγγραμμάτων">
-            </picture>
-            <span class="zoom-tag">Προβολή</span>
-          </div>
-          <div class="g-item wide zoomable lb-trigger" data-caption="Τίτλοι σπουδών και ιατρικής ειδικότητας, στο γραφείο του ιατρείου">
-            <picture>
-              <source srcset="assets/photos/office-diplomas.webp" type="image/webp">
-              <img src="assets/photos/office-diplomas.jpg" width="1700" height="1136"
-                   loading="lazy" decoding="async" alt="Οι κορνιζαρισμένοι τίτλοι σπουδών και ο τίτλος ιατρικής ειδικότητας, αναρτημένοι πάνω από το γραφείο του ιατρείου">
-            </picture>
-            <span class="zoom-tag">Προβολή</span>
-          </div>
-        </div>
+        <figure class="doc-portrait zoomable lb-trigger" data-caption="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων &amp; Ενηλίκων">
+          <picture>
+            <source srcset="assets/photos/portrait-doctor.webp" type="image/webp">
+            <img src="assets/photos/portrait-doctor.jpg" width="1200" height="1425"
+                 loading="lazy" decoding="async"
+                 alt="Ο Λάμπρος Μαριόλης, MD, MSc, με χειρουργική στολή και σκούφο, με σταυρωμένα χέρια">
+          </picture>
+          <span class="zoom-tag">Προβολή</span>
+        </figure>
         <ul class="train-list">
           <li><b>Πτυχίο</b> Ιατρική Σχολή, Πανεπιστήμιο Κατάνια, Ιταλία</li>
           <li><b>Μεταπτυχιακό</b> ΔΔΠΜΣ Παθήσεων Ρινός, Βάσης Κρανίου &amp; Προσωπικής Χώρας</li>
