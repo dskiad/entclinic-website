@@ -554,12 +554,14 @@
     background:linear-gradient(120deg,var(--ink) 0%, #4A3220 100%);
     color:var(--paper);text-align:center;padding:90px 0;
   }
+  /* Το πλαίσιο μεγάλωσε 25% (132 -> 165px) και το κάδρο δεν είναι πια σφιχτό:
+     η φωτογραφία μπαίνει ολόκληρη, χωρίς μεγέθυνση. */
   .cta-portrait{
-    width:132px;height:132px;border-radius:50%;overflow:hidden;margin:0 auto 26px;
+    width:165px;height:165px;border-radius:50%;overflow:hidden;margin:0 auto 26px;
     border:2px solid rgba(164,124,76,0.8);box-shadow:0 20px 44px -20px rgba(0,0,0,0.85);
   }
-  .cta-portrait img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.6);transform-origin:center 30%;}
-  @media (max-width:620px){ .cta-portrait{width:104px;height:104px;margin-bottom:20px;} }
+  .cta-portrait img{width:100%;height:100%;object-fit:cover;display:block;}
+  @media (max-width:620px){ .cta-portrait{width:130px;height:130px;margin-bottom:20px;} }
   .cta-banner .eyebrow{justify-content:center;color:var(--brass);}
   .cta-banner .eyebrow::before{display:none;}
   .cta-banner h2{color:var(--paper);font-size:clamp(28px,3.6vw,40px);margin:18px 0 30px;max-width:680px;margin-left:auto;margin-right:auto;}
@@ -1442,7 +1444,7 @@
     <div class="cta-portrait">
       <picture>
         <source srcset="assets/photos/portrait-suit-dark.webp" type="image/webp">
-        <img src="assets/photos/portrait-suit-dark.jpg" width="1400" height="1399"
+        <img src="assets/photos/portrait-suit-dark.jpg" width="700" height="700"
              loading="lazy" decoding="async" alt="Ο Λάμπρος Μαριόλης, MD, MSc">
       </picture>
     </div>
