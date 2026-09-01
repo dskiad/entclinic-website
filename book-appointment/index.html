@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Κλείστε ραντεβού — Λ. Μαριόλης, ΩΡΛ</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Κλείστε ραντεβού στο ωτορινολαρυγγολογικό ιατρείο του Λ. Μαριόλη, MD, MSc, στον Κορυδαλλό.">
+<link rel="icon" href="../assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+<meta name="theme-color" content="#2E1D12">
+<link rel="stylesheet" href="../assets/legal.css">
+<style>
+  main{padding:80px 0;}
+  .lead{font-size:16.5px;}
+  .cta{display:inline-flex;align-items:center;gap:10px;margin:26px 0 0;padding:16px 30px;
+    background:var(--ink);color:var(--paper);text-decoration:none;border-radius:2px;
+    font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+  .cta:hover{background:var(--brass-deep);color:var(--paper);}
+  .row{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);
+    display:flex;gap:34px;flex-wrap:wrap;font-size:15px;}
+  .row b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:5px;font-weight:700;}
+  .note{font-size:13.5px;color:var(--muted);margin-top:30px;}
+</style>
+</head>
+<body>
+
+<header class="legal">
+  <div class="wrap">
+    <div>
+      <strong>Λ. Μαριόλης, MD, MSc</strong>
+      <span>Ωτορινολαρυγγολογικό Ιατρείο (ΩΡΛ) · Κορυδαλλός</span>
+    </div>
+    <a href="../index.html">← Επιστροφή στον ιστότοπο</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Κλείστε ραντεβού</h1>
+    <p class="lead" id="msg">Σας μεταφέρουμε στη σελίδα κράτησης…</p>
+    <a class="cta" id="go" href="tel:2114182737">Καλέστε 211 418 27 37</a>
+
+    <div class="row">
+      <div><b>Τηλέφωνο</b>211 418 27 37</div>
+      <div><b>Κινητό</b>6936 503 658</div>
+      <div><b>Email</b><a href="mailto:lmariolis@entclinic.gr">lmariolis@entclinic.gr</a></div>
+      <div><b>Διεύθυνση</b>Δ. Διαμαντίδη 6 &amp; Πλ. Ελευθερίας 10, Κορυδαλλός</div>
+    </div>
+
+    <p class="note">Ωράριο: Δευτέρα, Τρίτη, Πέμπτη 09:00–21:00 · Τετάρτη, Παρασκευή 09:00–20:00.
+    Σε επείγον περιστατικό καλέστε το 166.</p>
+  </div>
+</main>
+
+<footer class="legal">
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος</span>
+    <span><a href="../index.html">Αρχική</a> · <a href="../privacy.html">Πολιτική Απορρήτου</a></span>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   ΔΙΧΤΥ ΑΣΦΑΛΕΙΑΣ ΓΙΑ ΤΗ ΣΕΛΙΔΑ ΚΡΑΤΗΣΗΣ
+   --------------------------------------------------------------------------
+   Σήμερα το https://entclinic.gr/book-appointment/ σερβίρεται από τον δικό σας
+   server. Αν κάποτε στραφεί το entclinic.gr στο GitHub Pages, εκείνη η σελίδα
+   παύει να υπάρχει και ΚΑΘΕ παλιός σύνδεσμος προς αυτήν σπάει: αποτελέσματα
+   Google, καρτέλες ασθενών, τυπωμένο υλικό, μηνύματα που έχουν ήδη σταλεί.
+
+   Αυτό το αρχείο πιάνει ακριβώς εκείνη τη διεύθυνση και στέλνει τον επισκέπτη
+   εκεί όπου θα ζει πλέον η κράτηση. Βάλτε τη διεύθυνση παρακάτω — ή αφήστε τη
+   κενή και η σελίδα δείχνει απλώς τηλέφωνο και email, ποτέ σφάλμα 404.
+
+   Παραδείγματα:
+     const BOOKING_URL = "https://book.entclinic.gr/";
+     const BOOKING_URL = "https://www.doctoranytime.gr/d/ORL/mariolis-lampros";
+   ========================================================================== */
+const BOOKING_URL = "";
+
+(function () {
+  var msg = document.getElementById('msg');
+  var go  = document.getElementById('go');
+  var here = location.href.split('#')[0].split('?')[0];
+  var target = (BOOKING_URL || '').trim();
+
+  // Φρουρά βρόχου: αν ο στόχος είναι η ίδια η σελίδα, μην ανακατευθύνεις ποτέ.
+  var same = false;
+  if (target) {
+    try { same = new URL(target, here).href.replace(/\/$/, '') === here.replace(/\/$/, ''); }
+    catch (e) { same = true; }
+  }
+
+  if (target && !same) {
+    go.href = target;
+    go.textContent = 'Συνεχίστε στη σελίδα κράτησης';
+    location.replace(target);
+  } else {
+    msg.textContent = 'Κλείστε το ραντεβού σας τηλεφωνικά ή με email — απαντάμε αυθημερόν.';
+  }
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>

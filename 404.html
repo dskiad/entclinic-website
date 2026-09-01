@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Η σελίδα δεν βρέθηκε — Λ. Μαριόλης, ΩΡΛ</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+<meta name="theme-color" content="#2E1D12">
+<link rel="stylesheet" href="/assets/legal.css">
+<style>
+  main{padding:80px 0;}
+  .code{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-deep);font-weight:700;margin:0 0 12px;}
+  .lead{font-size:16.5px;}
+  .links{list-style:none;margin:30px 0 0;padding:0;border-top:1px solid var(--line);}
+  .links li{border-bottom:1px solid var(--line);}
+  .links a{display:flex;justify-content:space-between;gap:20px;padding:15px 2px;
+    text-decoration:none;color:var(--ink);font-size:15.5px;}
+  .links a:hover{color:var(--brass-deep);}
+  .links span{color:var(--muted);font-size:13px;text-align:right;}
+  .call{margin-top:34px;font-size:15px;color:var(--ink-soft);}
+  .asked{font-size:13px;color:var(--muted);margin-top:26px;word-break:break-all;}
+</style>
+</head>
+<body>
+
+<header class="legal">
+  <div class="wrap">
+    <div>
+      <strong>Λ. Μαριόλης, MD, MSc</strong>
+      <span>Ωτορινολαρυγγολογικό Ιατρείο (ΩΡΛ) · Κορυδαλλός</span>
+    </div>
+    <a href="/">← Επιστροφή στον ιστότοπο</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="code">Σφάλμα 404</p>
+    <h1>Αυτή η σελίδα δεν υπάρχει</h1>
+    <p class="lead">Ίσως ο σύνδεσμος είναι παλιός ή έχει γραφτεί λάθος. Δείτε πού
+    μπορείτε να πάτε:</p>
+
+    <ul class="links">
+      <li><a href="/">Αρχική σελίδα<span>Ο ιατρός, οι παθήσεις, ο χώρος</span></a></li>
+      <li><a href="/#doctor">Ο Ιατρός<span>Σπουδές και κλινική πορεία</span></a></li>
+      <li><a href="/#services">Εξετάσεις &amp; Επεμβάσεις<span>Τι γίνεται στο ιατρείο</span></a></li>
+      <li><a href="/#news">Ενημέρωση<span>Άρθρα για ακοή, μύτη και λαιμό</span></a></li>
+      <li><a href="/book-appointment/">Κλείστε ραντεβού<span>Τηλεφωνικά ή online</span></a></li>
+      <li><a href="/#contact">Επικοινωνία &amp; ωράριο<span>Κορυδαλλός</span></a></li>
+    </ul>
+
+    <p class="call">Ή καλέστε μας απευθείας στο <strong>211 418 27 37</strong>.
+    Σε επείγον περιστατικό, το 166.</p>
+
+    <p class="asked" id="asked"></p>
+  </div>
+</main>
+
+<footer class="legal">
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος</span>
+    <span><a href="/privacy.html">Πολιτική Απορρήτου</a> · <a href="/terms.html">Όροι Χρήσης</a></span>
+  </div>
+</footer>
+
+<script>
+  /* Δείχνουμε τη διεύθυνση που ζητήθηκε: βοηθά τον επισκέπτη να καταλάβει αν
+     αντέγραψε μισό σύνδεσμο, και εσάς να δείτε ποιοι παλιοί σύνδεσμοι σπάνε. */
+  document.getElementById('asked').textContent = 'Ζητήθηκε: ' + location.pathname;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

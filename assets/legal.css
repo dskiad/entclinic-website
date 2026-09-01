@@ -34,7 +34,7 @@ header.legal{
   border-bottom:3px solid var(--brass);
 }
 header.legal .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
-header.legal strong{font-family:var(--serif);font-size:19px;font-weight:600;}
+header.legal strong{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--paper);}
 header.legal span{
   display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
   color:rgba(250,248,243,0.7);margin-top:3px;
