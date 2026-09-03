@@ -1,0 +1,74 @@
+/* Στυλ για τις σελίδες περιοχής (Κορυδαλλός, Νίκαια, Πειραιάς, Περιστέρι).
+   Φορτώνεται ΜΑΖΙ με το legal.css, το οποίο δίνει τις γραμματοσειρές, τα
+   χρώματα και το κέλυφος header/footer. Εδώ μπαίνει μόνο ό,τι παραπάνω
+   χρειάζονται αυτές οι σελίδες. */
+
+.wrap{max-width:860px;}
+
+.eyebrow{
+  font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brass-deep);margin:0 0 10px;
+}
+h1{margin-bottom:16px;}
+p.lede{font-size:18px;line-height:1.65;color:var(--ink-soft);max-width:64ch;}
+
+/* --- Κουμπιά ------------------------------------------------------------ */
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 8px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:15px 28px;border-radius:2px;text-decoration:none;
+  font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--ink);transition:background .2s,color .2s;
+}
+.btn-solid{background:var(--ink);color:var(--paper);}
+.btn-solid:hover{background:var(--brass-deep);border-color:var(--brass-deep);color:var(--paper);}
+.btn-outline{background:transparent;color:var(--ink);}
+.btn-outline:hover{background:var(--ink);color:var(--paper);}
+
+/* --- Κάρτες ------------------------------------------------------------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0 0 8px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:3px;
+  padding:22px 24px;
+}
+.card h3{margin-top:0;}
+.card p{font-size:14.5px;margin-bottom:0;}
+@media (max-width:760px){ .cards{grid-template-columns:1fr;} }
+
+/* --- Λίστα πράξεων σε δύο στήλες ---------------------------------------- */
+ul.two-col{columns:2;column-gap:34px;padding-left:20px;}
+@media (max-width:600px){ ul.two-col{columns:1;} }
+
+/* --- Πλαίσιο «πότε είναι επείγον» --------------------------------------- */
+.urgent{
+  background:#FBF1ED;border-left:3px solid #9E3B2A;padding:20px 24px;margin:20px 0 0;
+}
+.urgent h3{color:#9E3B2A;margin-top:0;}
+.urgent ul{margin-bottom:0;}
+
+/* --- Στοιχεία επικοινωνίας ---------------------------------------------- */
+dl.nap{margin:0;border-top:1px solid var(--line);}
+dl.nap div{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);}
+dl.nap dt{font-weight:600;color:var(--ink);font-size:13.5px;}
+dl.nap dd{margin:0;color:var(--ink-soft);font-size:14.5px;}
+@media (max-width:620px){ dl.nap div{grid-template-columns:1fr;gap:3px;} }
+
+/* --- Συχνές ερωτήσεις ---------------------------------------------------- */
+.faq{border-top:1px solid var(--line);}
+.faq details{border-bottom:1px solid var(--line);padding:14px 0;}
+.faq summary{
+  cursor:pointer;font-weight:600;color:var(--ink);font-size:15.5px;
+  list-style:none;display:flex;justify-content:space-between;gap:16px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--brass);font-weight:400;font-size:20px;line-height:1;}
+.faq details[open] summary::after{content:"–";}
+.faq details p{margin:12px 0 0;font-size:15px;}
+
+/* --- Οι υπόλοιπες περιοχές ---------------------------------------------- */
+.nearby{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none;}
+.nearby a{
+  display:inline-block;border:1px solid var(--line);background:var(--card);
+  padding:9px 16px;border-radius:2px;text-decoration:none;font-size:14px;
+}
+.nearby a:hover{border-color:var(--brass);}

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dskiad.github.io/entclinic-website/sitemap.xml
+Sitemap: https://entclinic.gr/sitemap.xml

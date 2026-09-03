@@ -12,8 +12,8 @@ import re
 import segno
 
 # --- Πού οδηγεί ο κωδικός QR ------------------------------------------------
-URL = "https://dskiad.github.io/entclinic-website/#reviews"
-SHOWN = "dskiad.github.io/entclinic-website"
+URL = "https://entclinic.gr/#reviews"
+SHOWN = "entclinic.gr"
 # Όταν ο ιστότοπος μεταφερθεί στο entclinic.gr, βάλτε π.χ.
 #   URL   = "https://entclinic.gr/#reviews"
 #   SHOWN = "entclinic.gr"

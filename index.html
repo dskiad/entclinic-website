@@ -16,21 +16,21 @@
 <!-- Προεπισκόπηση κατά την κοινοποίηση του συνδέσμου (Facebook, Viber, WhatsApp, LinkedIn)
      ΠΡΟΣΟΧΗ: όταν ο ιστότοπος μεταφερθεί σε δικό του domain, αλλάξτε ΟΛΕΣ τις παρακάτω
      απόλυτες διευθύνσεις — οι πλατφόρμες δεν δέχονται σχετικά μονοπάτια. -->
-<link rel="canonical" href="https://dskiad.github.io/entclinic-website/">
+<link rel="canonical" href="https://entclinic.gr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="el_GR">
 <meta property="og:site_name" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος">
 <meta property="og:title" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Κορυδαλλός">
 <meta property="og:description" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.">
-<meta property="og:url" content="https://dskiad.github.io/entclinic-website/">
-<meta property="og:image" content="https://dskiad.github.io/entclinic-website/assets/social-card.jpg">
+<meta property="og:url" content="https://entclinic.gr/">
+<meta property="og:image" content="https://entclinic.gr/assets/social-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος, Κορυδαλλός">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Κορυδαλλός">
 <meta name="twitter:description" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.">
-<meta name="twitter:image" content="https://dskiad.github.io/entclinic-website/assets/social-card.jpg">
+<meta name="twitter:image" content="https://entclinic.gr/assets/social-card.jpg">
 
 <link rel="preload" href="assets/fonts/Inter-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/EBGaramond-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -594,6 +594,12 @@
   footer a:hover{color:var(--brass);}
   .foot-legal a{border-bottom:1px solid rgba(164,124,76,0.55);padding-bottom:1px;}
   .foot-legal a:hover{color:var(--brass);}
+  .foot-areas{
+    border-top:1px solid rgba(250,248,243,0.12);padding:24px 0 6px;margin-bottom:26px;
+    display:flex;align-items:baseline;flex-wrap:wrap;gap:10px 18px;font-size:13.5px;
+  }
+  .foot-areas h4{margin:0 6px 0 0;}
+  .foot-areas a{border-bottom:1px solid rgba(164,124,76,0.45);padding-bottom:1px;}
   .foot-bottom{
     border-top:1px solid rgba(250,248,243,0.12);padding-top:26px;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
@@ -709,12 +715,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Physician",
-  "@id": "https://dskiad.github.io/entclinic-website/#iatreio",
+  "@id": "https://entclinic.gr/#iatreio",
   "name": "Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος",
   "alternateName": "Lampros Mariolis ENT",
   "description": "Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.",
-  "url": "https://dskiad.github.io/entclinic-website/",
-  "image": "https://dskiad.github.io/entclinic-website/assets/social-card.jpg",
+  "url": "https://entclinic.gr/",
+  "image": "https://entclinic.gr/assets/social-card.jpg",
   "medicalSpecialty": "Otolaryngologic",
   "telephone": "+302114182737",
   "email": "lmariolis@entclinic.gr",
@@ -727,7 +733,12 @@
     "addressRegion": "Αττική",
     "addressCountry": "GR"
   },
-  "areaServed": { "@type": "City", "name": "Κορυδαλλός" },
+  "areaServed": [
+    { "@type": "City", "name": "Κορυδαλλός" },
+    { "@type": "City", "name": "Νίκαια" },
+    { "@type": "City", "name": "Πειραιάς" },
+    { "@type": "City", "name": "Περιστέρι" }
+  ],
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday"], "opens": "09:00", "closes": "21:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Friday"], "opens": "09:00", "closes": "20:00" }
@@ -737,7 +748,7 @@
     "name": "Λάμπρος Μαριόλης",
     "honorificSuffix": "MD, MSc",
     "jobTitle": "Χειρουργός Ωτορινολαρυγγολόγος Παίδων & Ενηλίκων",
-    "image": "https://dskiad.github.io/entclinic-website/assets/photos/portrait-suit.jpg",
+    "image": "https://entclinic.gr/assets/photos/portrait-suit.jpg",
     "alumniOf": [
       { "@type": "CollegeOrUniversity", "name": "Università degli Studi di Catania — Ιατρική Σχολή" },
       { "@type": "CollegeOrUniversity", "name": "Πανεπιστήμιο Πατρών & ΕΚΠΑ — ΔΔΠΜΣ Παθήσεων Ρινός, Βάσης Κρανίου και Προσωπικής Χώρας" }
@@ -780,7 +791,7 @@
     </nav>
     <div class="header-actions">
       <a class="header-phone" href="tel:2114182737">211 418 27 37</a>
-      <a class="btn btn-book" href="https://entclinic.gr/book-appointment/"><span class="bk-full">Κλείστε Ραντεβού</span><span class="bk-short">Ραντεβού</span></a>
+      <a class="btn btn-book" href="https://booking.entclinic.gr/book-appointment/"><span class="bk-full">Κλείστε Ραντεβού</span><span class="bk-short">Ραντεβού</span></a>
       <button class="menu-toggle" aria-label="Άνοιγμα μενού" id="menuToggle"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -816,7 +827,7 @@
       <h1>Φροντίδα για την ακοή,<br>την αναπνοή <em>και τη φωνή σας</em>,<br>με ακρίβεια και προσοχή.</h1>
       <p class="lede">Ο Δρ. Λάμπρος Μαριόλης, MD, MSc, συνδυάζει σύγχρονη διαγνωστική τεχνολογία με εξατομικευμένη κλινική προσέγγιση, για παιδιά και ενήλικες, σε έναν χώρο σχεδιασμένο γύρω από τον ασθενή.</p>
       <div class="hero-cta">
-        <a class="btn btn-book" href="https://entclinic.gr/book-appointment/">Κλείστε Ραντεβού</a>
+        <a class="btn btn-book" href="https://booking.entclinic.gr/book-appointment/">Κλείστε Ραντεβού</a>
         <a class="btn btn-outline" href="#doctor">Γνωρίστε τον Ιατρό</a>
       </div>
     </div>
@@ -1491,6 +1502,13 @@
         </ul>
       </div>
     </div>
+    <div class="foot-areas">
+      <h4>Περιοχές</h4>
+      <a href="korydallos/">Κορυδαλλός</a>
+      <a href="nikaia/">Νίκαια</a>
+      <a href="peiraias/">Πειραιάς</a>
+      <a href="peristeri/">Περιστέρι</a>
+    </div>
     <div class="foot-bottom">
       <span>© <span id="footYear">2026</span> Λάμπρος Μαριόλης, MD, MSc. Με επιφύλαξη κάθε νόμιμου δικαιώματος.</span>
       <span class="foot-legal">
@@ -1692,7 +1710,7 @@
 
   // appointment CTA: confirm, then hand over to the booking page
   (function(){
-    const BOOK_URL = 'https://entclinic.gr/book-appointment/';
+    const BOOK_URL = 'https://booking.entclinic.gr/book-appointment/';
     const overlay = document.getElementById('bookOverlay');
     const buttons = document.querySelectorAll('.btn-book');
     let leaving = false;
