@@ -16,21 +16,21 @@
 <!-- Προεπισκόπηση κατά την κοινοποίηση του συνδέσμου (Facebook, Viber, WhatsApp, LinkedIn)
      ΠΡΟΣΟΧΗ: όταν ο ιστότοπος μεταφερθεί σε δικό του domain, αλλάξτε ΟΛΕΣ τις παρακάτω
      απόλυτες διευθύνσεις — οι πλατφόρμες δεν δέχονται σχετικά μονοπάτια. -->
-<link rel="canonical" href="https://dskiad.github.io/entclinic-website/">
+<link rel="canonical" href="https://entclinic.gr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="el_GR">
 <meta property="og:site_name" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος">
 <meta property="og:title" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Κορυδαλλός">
 <meta property="og:description" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.">
-<meta property="og:url" content="https://dskiad.github.io/entclinic-website/">
-<meta property="og:image" content="https://dskiad.github.io/entclinic-website/assets/social-card.jpg">
+<meta property="og:url" content="https://entclinic.gr/">
+<meta property="og:image" content="https://entclinic.gr/assets/social-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος, Κορυδαλλός">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος, Κορυδαλλός">
 <meta name="twitter:description" content="Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.">
-<meta name="twitter:image" content="https://dskiad.github.io/entclinic-website/assets/social-card.jpg">
+<meta name="twitter:image" content="https://entclinic.gr/assets/social-card.jpg">
 
 <link rel="preload" href="assets/fonts/Inter-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/EBGaramond-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -263,33 +263,61 @@
     .hero-watermark{display:none;}
   }
 
-  /* ===== Credentials strip ===== */
+  /* ===== Credentials strip =====
+     Τρία επίπεδα ανάγνωσης αντί για ένα: το στάδιο της εκπαίδευσης (Πτυχίο,
+     Ειδίκευση…), η χώρα με τη σημαία της, και το ίδρυμα. Έτσι η λωρίδα δεν
+     είναι τέσσερις τίτλοι στη σειρά αλλά μια διαδρομή που διαβάζεται.
+
+     Οι σημαίες είναι SVG, όχι emoji: τα emoji σημαιών ΔΕΝ εμφανίζονται στα
+     Windows — ο Chrome και ο Edge δείχνουν στη θέση τους δύο κεφαλαία γράμματα
+     («IT», «GR», «GB»), που σε ιατρική σελίδα μοιάζει με σφάλμα. Το SVG
+     εμφανίζεται παντού ίδιο και σε οποιοδήποτε μέγεθος. */
   .credentials{
     background:var(--ink);color:var(--paper);
-    padding:0;
+    padding:0 0 6px;border-top:3px solid var(--brass);
+  }
+  .cred-eyebrow{
+    margin:0;padding:28px 0 26px;text-align:center;
+    font-family:var(--sans);font-size:11.5px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;color:#C9A063;
   }
   .cred-row{
     display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid rgba(250,248,243,0.14);
   }
   .cred-item{
-    padding:30px 28px;border-left:1px solid rgba(250,248,243,0.14);
+    padding:28px 28px 34px;border-left:1px solid rgba(250,248,243,0.14);
   }
   .cred-item:first-child{border-left:none;}
-  .cred-item .num{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--paper);display:block;margin-bottom:6px;letter-spacing:.01em;}
-  .cred-item p{margin:0;font-size:13px;color:rgba(250,248,243,0.78);line-height:1.5;}
+  .cred-stage{
+    display:block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+    letter-spacing:.17em;text-transform:uppercase;
+    color:rgba(250,248,243,0.46);margin-bottom:13px;
+  }
+  .cred-item .num{
+    font-family:var(--serif);font-size:22px;font-weight:600;color:var(--paper);
+    display:flex;align-items:center;gap:11px;margin-bottom:9px;letter-spacing:.01em;
+  }
+  .cred-flag{
+    height:19px;width:auto;flex:none;display:block;border-radius:1.5px;
+    box-shadow:0 0 0 1px rgba(250,248,243,0.3), 0 1px 3px rgba(0,0,0,0.45);
+  }
+  .cred-item p{margin:0;font-size:13px;color:rgba(250,248,243,0.78);line-height:1.55;}
   @media (max-width:820px){
     .cred-row{grid-template-columns:1fr 1fr;}
     .cred-item:nth-child(3){border-left:none;}
+    .cred-item:nth-child(n+3){border-top:1px solid rgba(250,248,243,0.14);}
   }
   @media (max-width:520px){
     .cred-row{grid-template-columns:1fr;}
     .cred-item{border-left:none !important;border-top:1px solid rgba(250,248,243,0.14);}
     .cred-item:first-child{border-top:none;}
+    .cred-item .num{font-size:20px;}
   }
 
   /* ===== About doctor ===== */
   .about-grid{
-    display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:stretch;
+    display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:stretch;
   }
   .about-grid h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:22px;line-height:1.12;}
   .about-grid .role{color:var(--brass-deep);font-weight:600;font-size:15px;margin-bottom:20px;}
@@ -317,17 +345,19 @@
     border:1px solid var(--line);padding:7px 14px;border-radius:2px;background:var(--paper-dim);
   }
   /* Μία φωτογραφία του ιατρού, τόσο ψηλή όσο το κείμενο δεξιά: από την κορυφή
-     της ενότητας έως ακριβώς πάνω από τον πίνακα σπουδών. Το πλαίσιο μεγαλώνει
-     με το κείμενο (flex:1), και η φωτογραφία μπαίνει με object-fit:contain
-     πατώντας στη βάση — έτσι δεν κόβεται ποτέ, ενώ το φόντο του πλαισίου είναι
-     το ίδιο επίπεδο γκρι του στούντιο (#A5A7A4), ώστε να μη φαίνεται ένωση. */
+     της ενότητας. Το πλαίσιο παίρνει την ΑΚΡΙΒΗ αναλογία του αρχείου
+     (1200/1425), οπότε η φωτογραφία το γεμίζει ολόκληρο χωρίς να κόβεται και
+     χωρίς κενό: με flex:1 και object-fit:contain το πλαίσιο τεντωνόταν στο ύψος
+     του διπλανού κειμένου και έμεναν σχεδόν 200 px γκρι πάνω από το κεφάλι.
+     Ο πίνακας σπουδών πέφτει στη βάση (space-between), ώστε οι δύο στήλες να
+     κλείνουν μαζί. Το φόντο μένει το επίπεδο γκρι του στούντιο (#A5A7A4). */
   .doc-aside{display:flex;}
-  .sig-block{display:flex;flex-direction:column;width:100%;}
+  .sig-block{display:flex;flex-direction:column;width:100%;justify-content:space-between;gap:26px;}
   .doc-portrait{
-    margin:0 0 26px;flex:1 1 auto;min-height:460px;
+    margin:0;flex:none;aspect-ratio:1200/1425;overflow:hidden;
     border-radius:2px;box-shadow:var(--shadow);background:#A5A7A4;
   }
-  .doc-portrait img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;}
+  .doc-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
   .sig-block .thumb{border-radius:2px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:20px;}
   .train-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
   .train-list li{
@@ -594,6 +624,12 @@
   footer a:hover{color:var(--brass);}
   .foot-legal a{border-bottom:1px solid rgba(164,124,76,0.55);padding-bottom:1px;}
   .foot-legal a:hover{color:var(--brass);}
+  .foot-areas{
+    border-top:1px solid rgba(250,248,243,0.12);padding:24px 0 6px;margin-bottom:26px;
+    display:flex;align-items:baseline;flex-wrap:wrap;gap:10px 18px;font-size:13.5px;
+  }
+  .foot-areas h4{margin:0 6px 0 0;}
+  .foot-areas a{border-bottom:1px solid rgba(164,124,76,0.45);padding-bottom:1px;}
   .foot-bottom{
     border-top:1px solid rgba(250,248,243,0.12);padding-top:26px;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
@@ -709,12 +745,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Physician",
-  "@id": "https://dskiad.github.io/entclinic-website/#iatreio",
+  "@id": "https://entclinic.gr/#iatreio",
   "name": "Λάμπρος Μαριόλης, MD, MSc — Ωτορινολαρυγγολόγος",
   "alternateName": "Lampros Mariolis ENT",
   "description": "Λάμπρος Μαριόλης, MD, MSc — Χειρουργός Ωτορινολαρυγγολόγος Παίδων και Ενηλίκων στον Κορυδαλλό. Διάγνωση και αντιμετώπιση παθήσεων αυτιού, μύτης και λαιμού, ακοολογικός έλεγχος, ενδοσκόπηση, χειρουργική κεφαλής και τραχήλου.",
-  "url": "https://dskiad.github.io/entclinic-website/",
-  "image": "https://dskiad.github.io/entclinic-website/assets/social-card.jpg",
+  "url": "https://entclinic.gr/",
+  "image": "https://entclinic.gr/assets/social-card.jpg",
   "medicalSpecialty": "Otolaryngologic",
   "telephone": "+302114182737",
   "email": "lmariolis@entclinic.gr",
@@ -727,7 +763,12 @@
     "addressRegion": "Αττική",
     "addressCountry": "GR"
   },
-  "areaServed": { "@type": "City", "name": "Κορυδαλλός" },
+  "areaServed": [
+    { "@type": "City", "name": "Κορυδαλλός" },
+    { "@type": "City", "name": "Νίκαια" },
+    { "@type": "City", "name": "Πειραιάς" },
+    { "@type": "City", "name": "Περιστέρι" }
+  ],
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday"], "opens": "09:00", "closes": "21:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Friday"], "opens": "09:00", "closes": "20:00" }
@@ -737,7 +778,7 @@
     "name": "Λάμπρος Μαριόλης",
     "honorificSuffix": "MD, MSc",
     "jobTitle": "Χειρουργός Ωτορινολαρυγγολόγος Παίδων & Ενηλίκων",
-    "image": "https://dskiad.github.io/entclinic-website/assets/photos/portrait-suit.jpg",
+    "image": "https://entclinic.gr/assets/photos/portrait-suit.jpg",
     "alumniOf": [
       { "@type": "CollegeOrUniversity", "name": "Università degli Studi di Catania — Ιατρική Σχολή" },
       { "@type": "CollegeOrUniversity", "name": "Πανεπιστήμιο Πατρών & ΕΚΠΑ — ΔΔΠΜΣ Παθήσεων Ρινός, Βάσης Κρανίου και Προσωπικής Χώρας" }
@@ -780,7 +821,7 @@
     </nav>
     <div class="header-actions">
       <a class="header-phone" href="tel:2114182737">211 418 27 37</a>
-      <a class="btn btn-book" href="https://entclinic.gr/book-appointment/"><span class="bk-full">Κλείστε Ραντεβού</span><span class="bk-short">Ραντεβού</span></a>
+      <a class="btn btn-book" href="https://booking.entclinic.gr/book-appointment/"><span class="bk-full">Κλείστε Ραντεβού</span><span class="bk-short">Ραντεβού</span></a>
       <button class="menu-toggle" aria-label="Άνοιγμα μενού" id="menuToggle"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -816,7 +857,7 @@
       <h1>Φροντίδα για την ακοή,<br>την αναπνοή <em>και τη φωνή σας</em>,<br>με ακρίβεια και προσοχή.</h1>
       <p class="lede">Ο Δρ. Λάμπρος Μαριόλης, MD, MSc, συνδυάζει σύγχρονη διαγνωστική τεχνολογία με εξατομικευμένη κλινική προσέγγιση, για παιδιά και ενήλικες, σε έναν χώρο σχεδιασμένο γύρω από τον ασθενή.</p>
       <div class="hero-cta">
-        <a class="btn btn-book" href="https://entclinic.gr/book-appointment/">Κλείστε Ραντεβού</a>
+        <a class="btn btn-book" href="https://booking.entclinic.gr/book-appointment/">Κλείστε Ραντεβού</a>
         <a class="btn btn-outline" href="#doctor">Γνωρίστε τον Ιατρό</a>
       </div>
     </div>
@@ -838,11 +879,30 @@
 
 <!-- ================= CREDENTIALS STRIP ================= -->
 <div class="credentials">
+  <div class="wrap">
+    <p class="cred-eyebrow">Εκπαίδευση &amp; κλινική διαδρομή σε τρεις χώρες</p>
+  </div>
   <div class="wrap cred-row">
-    <div class="cred-item"><span class="num">🇮🇹 Ιταλία</span><p>Ιατρική Σχολή Πανεπιστημίου Κατάνια</p></div>
-    <div class="cred-item"><span class="num">Master in Science</span><p>Παθήσεις Ρινός, Βάσης Κρανίου &amp; Προσωπικής Χώρας — Παν. Πατρών / ΕΚΠΑ</p></div>
-    <div class="cred-item"><span class="num">🇬🇷 Ελλάδα</span><p>Ειδίκευση: «Η Αγία Σοφία» &amp; ΠΓΝ «Αττικόν»</p></div>
-    <div class="cred-item"><span class="num">🇬🇧 Ηνωμένο Βασίλειο</span><p>ENT Registrar, NHS — Pinderfields General Hospital</p></div>
+    <div class="cred-item">
+      <span class="cred-stage">Πτυχίο</span>
+      <span class="num"><svg class="cred-flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false"><rect width="3" height="2" fill="#F4F5F0"/><rect width="1" height="2" fill="#008C45"/><rect x="2" width="1" height="2" fill="#CD212A"/></svg> Ιταλία</span>
+      <p>Ιατρική Σχολή Πανεπιστημίου Κατάνια</p>
+    </div>
+    <div class="cred-item">
+      <span class="cred-stage">Μεταπτυχιακό</span>
+      <span class="num"><svg class="cred-flag" viewBox="0 0 27 18" aria-hidden="true" focusable="false"><rect width="27" height="18" fill="#0D5EAF"/><g fill="#FFF"><rect y="2" width="27" height="2"/><rect y="6" width="27" height="2"/><rect y="10" width="27" height="2"/><rect y="14" width="27" height="2"/></g><rect width="10" height="10" fill="#0D5EAF"/><path d="M4 0h2v10H4z M0 4h10v2H0z" fill="#FFF"/></svg> Master in Science</span>
+      <p>Παθήσεις Ρινός, Βάσης Κρανίου &amp; Προσωπικής Χώρας — Παν. Πατρών / ΕΚΠΑ</p>
+    </div>
+    <div class="cred-item">
+      <span class="cred-stage">Ειδίκευση</span>
+      <span class="num"><svg class="cred-flag" viewBox="0 0 27 18" aria-hidden="true" focusable="false"><rect width="27" height="18" fill="#0D5EAF"/><g fill="#FFF"><rect y="2" width="27" height="2"/><rect y="6" width="27" height="2"/><rect y="10" width="27" height="2"/><rect y="14" width="27" height="2"/></g><rect width="10" height="10" fill="#0D5EAF"/><path d="M4 0h2v10H4z M0 4h10v2H0z" fill="#FFF"/></svg> Ελλάδα</span>
+      <p>Νοσ. Παίδων «Η Αγία Σοφία» &amp; Β΄ Παν. ΩΡΛ Κλινική ΠΓΝ «Αττικόν»</p>
+    </div>
+    <div class="cred-item">
+      <span class="cred-stage">Διεθνής εμπειρία</span>
+      <span class="num"><svg class="cred-flag" viewBox="0 0 60 30" aria-hidden="true" focusable="false"><clipPath id="ukQuarters"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0 0h60v30H0z" fill="#012169"/><path d="M0 0 60 30M60 0 0 30" stroke="#FFF" stroke-width="6" fill="none"/><path d="M0 0 60 30M60 0 0 30" stroke="#C8102E" stroke-width="4" fill="none" clip-path="url(#ukQuarters)"/><path d="M30 0v30M0 15h60" stroke="#FFF" stroke-width="10" fill="none"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6" fill="none"/></svg> Ηνωμένο Βασίλειο</span>
+      <p>ENT Registrar, NHS — Pinderfields General Hospital</p>
+    </div>
   </div>
 </div>
 
@@ -1491,6 +1551,13 @@
         </ul>
       </div>
     </div>
+    <div class="foot-areas">
+      <h4>Περιοχές</h4>
+      <a href="korydallos/">Κορυδαλλός</a>
+      <a href="nikaia/">Νίκαια</a>
+      <a href="peiraias/">Πειραιάς</a>
+      <a href="peristeri/">Περιστέρι</a>
+    </div>
     <div class="foot-bottom">
       <span>© <span id="footYear">2026</span> Λάμπρος Μαριόλης, MD, MSc. Με επιφύλαξη κάθε νόμιμου δικαιώματος.</span>
       <span class="foot-legal">
@@ -1692,7 +1759,7 @@
 
   // appointment CTA: confirm, then hand over to the booking page
   (function(){
-    const BOOK_URL = 'https://entclinic.gr/book-appointment/';
+    const BOOK_URL = 'https://booking.entclinic.gr/book-appointment/';
     const overlay = document.getElementById('bookOverlay');
     const buttons = document.querySelectorAll('.btn-book');
     let leaving = false;
