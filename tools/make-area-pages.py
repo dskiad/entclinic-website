@@ -70,13 +70,6 @@ def site_base():
     return (m.group(1) if m else "https://entclinic.gr").rstrip("/")
 
 
-def booking_url():
-    """Πού ζει σήμερα η κράτηση — το ορίζει το set-site-url.py --booking."""
-    s = io.open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
-    m = re.search(r"https?://[^\"'\s>]*book-appointment[^\"'\s>]*", s)
-    return m.group(0) if m else "https://booking.entclinic.gr/book-appointment/"
-
-
 # --- Οι περιοχές -----------------------------------------------------------
 # Οι πτώσεις γράφονται μία-μία: η ελληνική κλίση δεν παράγεται με κανόνα, και
 # ένα «στην Πειραιά» στην πρώτη γραμμή της σελίδας κοστίζει την εμπιστοσύνη.
@@ -213,7 +206,7 @@ def jstr(s):
     return s.replace("\\", "\\\\").replace('"', '\\"')
 
 
-def page(area, base, book):
+def page(area, base):
     url = "%s/%s/" % (base, area["slug"])
     home = area["home"]
     nom, loc, gen, frm = area["nom"], area["loc"], area["gen"], area["frm"]
@@ -359,8 +352,8 @@ def page(area, base, book):
     παθήσεις αυτιού, μύτης και λαιμού, με σύγχρονο διαγνωστικό εξοπλισμό.</p>
 
     <div class="actions">
-      <a class="btn btn-book" href="{book}">Κλείστε Ραντεβού</a>
       <a class="btn btn-solid" href="tel:{phone_href}">Καλέστε {phone}</a>
+      <a class="btn btn-outline" href="mailto:{email}">Στείλτε email</a>
     </div>
 
     <h2>Πώς θα έρθετε {frm}</h2>
@@ -432,12 +425,12 @@ def page(area, base, book):
 {faq_html}
     </div>
 
-    <h2>Κλείστε ραντεβού</h2>
+    <h2>Επικοινωνήστε μαζί μας</h2>
     <p>Η σωστή διάγνωση ξεκινά με μία συζήτηση. Καλέστε μας ή στείλτε email —
     απαντάμε αυθημερόν.</p>
     <div class="actions">
-      <a class="btn btn-book" href="{book}">Κλείστε Ραντεβού</a>
       <a class="btn btn-solid" href="tel:{phone_href}">Καλέστε {phone}</a>
+      <a class="btn btn-outline" href="mailto:{email}">Στείλτε email</a>
     </div>
 
     <h2>Άλλες περιοχές</h2>
@@ -460,7 +453,7 @@ def page(area, base, book):
 """.format(
         title=esc(title), title_j=jstr(title),
         desc=esc(desc), desc_j=jstr(desc),
-        url=url, base=base, book=book,
+        url=url, base=base,
         nom=esc(nom), nom_j=jstr(nom), h1=esc(h1),
         blurb=esc(area["blurb"]), frm=esc(frm),
         travel=travel, exams=exams, urgent=urgent,
@@ -491,16 +484,15 @@ def write_sitemap(base):
 
 
 def main():
-    base, book = site_base(), booking_url()
+    base = site_base()
     for a in AREAS:
         d = os.path.join(ROOT, a["slug"])
         if not os.path.isdir(d):
             os.makedirs(d)
         p = os.path.join(d, "index.html")
-        io.open(p, "w", encoding="utf-8").write(page(a, base, book))
+        io.open(p, "w", encoding="utf-8").write(page(a, base))
         print("%-30s %s/" % (a["slug"] + "/index.html", base + "/" + a["slug"]))
     write_sitemap(base)
-    print("\nκράτηση ραντεβού:", book)
     return 0
 
 

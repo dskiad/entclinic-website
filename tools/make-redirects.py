@@ -33,7 +33,7 @@ PHONE_TEXT = "211 418 27 37"
 PHONE_HREF = "2114182737"
 
 # Φάκελοι με δική τους σελίδα: το εργαλείο δεν τους ακουμπά ποτέ.
-PROTECTED = {"assets", "tools", "docs", "print", "book-appointment",
+PROTECTED = {"assets", "tools", "docs", "print",
              "korydallos", "nikaia", "peiraias", "peristeri"}
 
 

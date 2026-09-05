@@ -12,7 +12,7 @@
 # Ο προορισμός μπορεί να είναι:
 #   ενότητα της νέας σελίδας   /#doctor
 #   σελίδα της νέας σελίδας    /nikaia/
-#   άλλη υπηρεσία              https://booking.entclinic.gr/book-appointment/
+#   άλλη υπηρεσία              https://www.doctoranytime.gr/…
 #
 # Γραμμές που ξεκινούν με # αγνοούνται.
 #
@@ -33,6 +33,7 @@
 # /oroi-chrisis/            /terms.html
 # /politiki-aporritou/      /privacy.html
 #
-# Το /book-appointment/ ΔΕΝ μπαίνει εδώ: έχει δική του σελίδα με τηλέφωνο και
-# email ως εναλλακτική, που ρυθμίζεται με
-#   python3 tools/set-site-url.py --booking <διεύθυνση>
+# Το /book-appointment/ του παλιού ιστότοπου ΜΠΟΡΕΙ να μπει εδώ — η διαδικτυακή
+# κράτηση καταργήθηκε, οπότε ο σωστός προορισμός είναι πλέον η επικοινωνία:
+#
+# /book-appointment/        /#contact

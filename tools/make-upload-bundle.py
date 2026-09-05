@@ -22,7 +22,9 @@ OUT = os.path.join(ROOT, "dist", "entclinic-website.zip")
 
 FILES = ["index.html", "privacy.html", "terms.html", "404.html",
          "robots.txt", "sitemap.xml"]
-DIRS = ["assets", "book-appointment"]
+DIRS = ["assets", "korydallos", "nikaia", "peiraias", "peristeri"]
+# Οι σελίδες περιοχής έλειπαν από τη λίστα: το πακέτο ανεβάσματος τις
+# άφηνε έξω, οπότε στον server θα έβγαζαν 404 ενώ υπάρχουν στο repository.
 SKIP_EXT = {".woff2.br"}
 
 

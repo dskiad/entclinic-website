@@ -126,12 +126,3 @@ dl.nap dd{margin:0;color:var(--ink-soft);font-size:14.5px;}
   .gmaps-txt b{font-size:14.5px;}
 }
 
-/* --- Κουμπί κράτησης: προσωρινά κρυφό ------------------------------------
-   Το booking.entclinic.gr ΔΕΝ έχει ακόμη εγγραφή A — δεν αναλύεται καθόλου.
-   Ώσπου να σηκωθεί, το κουμπί οδηγούσε σε σφάλμα του browser, οπότε κρύβεται
-   εδώ όπως ήδη κρύβεται στην αρχική σελίδα.
-
-   ΓΙΑ ΝΑ ΞΑΝΑΕΜΦΑΝΙΣΤΕΙ: σβήστε αυτόν τον κανόνα, και τον αντίστοιχο
-   «display:none» στο .btn-book του index.html. Πρώτα όμως επιβεβαιώστε ότι το
-   https://booking.entclinic.gr/book-appointment/ ανοίγει. */
-.btn-book{display:none;}
