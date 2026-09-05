@@ -359,8 +359,8 @@ def page(area, base, book):
     παθήσεις αυτιού, μύτης και λαιμού, με σύγχρονο διαγνωστικό εξοπλισμό.</p>
 
     <div class="actions">
-      <a class="btn btn-solid" href="{book}">Κλείστε Ραντεβού</a>
-      <a class="btn btn-outline" href="tel:{phone_href}">Καλέστε {phone}</a>
+      <a class="btn btn-book" href="{book}">Κλείστε Ραντεβού</a>
+      <a class="btn btn-solid" href="tel:{phone_href}">Καλέστε {phone}</a>
     </div>
 
     <h2>Πώς θα έρθετε {frm}</h2>
@@ -433,11 +433,11 @@ def page(area, base, book):
     </div>
 
     <h2>Κλείστε ραντεβού</h2>
-    <p>Η σωστή διάγνωση ξεκινά με μία συζήτηση. Κλείστε ραντεβού διαδικτυακά ή
-    τηλεφωνικά — απαντάμε αυθημερόν.</p>
+    <p>Η σωστή διάγνωση ξεκινά με μία συζήτηση. Καλέστε μας ή στείλτε email —
+    απαντάμε αυθημερόν.</p>
     <div class="actions">
-      <a class="btn btn-solid" href="{book}">Κλείστε Ραντεβού</a>
-      <a class="btn btn-outline" href="tel:{phone_href}">Καλέστε {phone}</a>
+      <a class="btn btn-book" href="{book}">Κλείστε Ραντεβού</a>
+      <a class="btn btn-solid" href="tel:{phone_href}">Καλέστε {phone}</a>
     </div>
 
     <h2>Άλλες περιοχές</h2>
