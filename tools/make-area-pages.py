@@ -49,13 +49,10 @@ MAPS = ("https://www.google.com/maps/place/%CE%94.%20%CE%94%CE%B9%CE%B1%CE%BC"
 # πλοήγηση σε κάποιον που απλώς κοιτάζει πού είναι το ιατρείο.
 DIR = ("https://www.google.com/maps/dir/?api=1&amp;destination=" + COORDS +
        "&amp;travelmode=")
-
-NAV_ICON = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" '
-            'focusable="false"><path d="M12 2 21 21.2 12 17.3 3 21.2Z"/></svg>')
-GO_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-           'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
-           'aria-hidden="true" focusable="false">'
-           '<path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg>')
+# Το σύντομο link του ιατρείου: δείχνει στην ίδια την καταχώριση στους
+# Χάρτες, όχι σε συντεταγμένες. Τα τσιπ κρατούν το DIR, γιατί μόνο εκείνο
+# δέχεται παράμετρο μέσου μεταφοράς.
+SHORT = "https://maps.app.goo.gl/2Zwkrue6Wv7vSznw6?g_st=ac"
 
 # Ποιο μέσο προτείνεται πρώτο σε κάθε περιοχή. Δεν είναι διακοσμητικό: είναι
 # ό,τι λέει ήδη η ενότητα «Πώς θα έρθετε» της ίδιας σελίδας.
@@ -270,6 +267,7 @@ def page(area, base):
 <meta name="theme-color" content="#2E1D12">
 <link rel="stylesheet" href="../assets/legal.css">
 <link rel="stylesheet" href="../assets/area.css">
+<link rel="stylesheet" href="../assets/map-button.css">
 
 <!-- Δομημένα δεδομένα: η σελίδα δεν δηλώνει δεύτερο ιατρείο. Παραπέμπει στο
      ένα και μοναδικό, με @id ίδιο με της αρχικής, και προσθέτει μόνο την
@@ -396,17 +394,22 @@ def page(area, base):
 
     <h2>Πού είναι το ιατρείο</h2>
 
-    <a class="gmaps" href="{dir}{mode}" target="_blank" rel="noopener"
-       aria-label="Οδηγίες πλοήγησης προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">
-      <span class="gmaps-ico">{nav}</span>
-      <span class="gmaps-txt">
-        <b>Οδηγίες πλοήγησης {frm}</b>
-        <small>{street}, {city} · Χάρτες Google</small>
-      </span>
-      <span class="gmaps-go">{go}</span>
+    <a href="{short}" target="_blank" rel="noopener noreferrer" class="smart-map-button"
+       aria-label="Οδηγίες προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">
+      <div class="map-icon-wrapper">
+        <svg class="google-pin-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="#EA4335" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle fill="#FFFFFF" cx="12" cy="9" r="2.5"/>
+        </svg>
+        <div class="mini-fold-map"></div>
+      </div>
+      <div class="button-text-content">
+        <span class="button-main-title">ΟΔΗΓΗΣΕ ΜΕ</span>
+        <span class="button-sub-title">ΣΤΟ ΙΑΤΡΕΙΟ <span class="arrow-icon">›</span></span>
+      </div>
     </a>
-    <p class="gmaps-help">Υπολογίζει τη διαδρομή από την τοποθεσία σας. Σε κινητό
-    ανοίγει απευθείας η εφαρμογή Χάρτες.</p>
+    <p class="gmaps-help">Ανοίγει τους Χάρτες Google — σε κινητό, απευθείας την
+    εφαρμογή. Από κάτω, διαδρομή ανά μέσο μεταφοράς.</p>
     <ul class="gmaps-modes">{modes}
       <li><a href="{maps}" target="_blank" rel="noopener">Προβολή στον χάρτη</a></li>
     </ul>
@@ -458,8 +461,7 @@ def page(area, base):
         blurb=esc(area["blurb"]), frm=esc(frm),
         travel=travel, exams=exams, urgent=urgent,
         faq_html=faq_html, faq_ld=faq_ld, nearby=nearby,
-        dir=DIR, mode=area["mode"], modes=mode_html,
-        nav=NAV_ICON, go=GO_ICON,
+        dir=DIR, short=SHORT, modes=mode_html,
         phone=PHONE_TEXT, phone_href=PHONE_HREF, intl=PHONE_INTL,
         mob=MOBILE_TEXT, mob_href=MOBILE_HREF, email=EMAIL,
         street=esc(STREET), street_j=jstr(STREET), city=CITY, postal=POSTAL,
