@@ -36,9 +36,31 @@ CITY = "Κορυδαλλός"
 POSTAL = "18120"
 HOURS_TEXT = ("Δευτέρα, Τρίτη, Πέμπτη 09:00–21:00 · "
               "Τετάρτη, Παρασκευή 09:00–20:00")
-MAPS = ("https://www.google.com/maps/search/?api=1&query="
-        "%CE%94.+%CE%94%CE%B9%CE%B1%CE%BC%CE%B1%CE%BD%CF%84%CE%AF%CE%B4%CE%B7"
-        "+6+%CE%9A%CE%BF%CF%81%CF%85%CE%B4%CE%B1%CE%BB%CE%BB%CF%8C%CF%82")
+# Οι συντεταγμένες, όχι το κείμενο της διεύθυνσης: το «Δ. Διαμαντίδη 6 &
+# Πλ. Ελευθερίας 10» είναι γωνία δύο δρόμων και γεωκωδικοποιείται αναξιόπιστα.
+COORDS = "37.9772195%2C23.6490417"
+MAPS = ("https://www.google.com/maps/place/%CE%94.%20%CE%94%CE%B9%CE%B1%CE%BC"
+        "%CE%B1%CE%BD%CF%84%CE%AF%CE%B4%CE%B7%206%20%26%20%CE%A0%CE%BB.%20"
+        "%CE%95%CE%BB%CE%B5%CF%85%CE%B8%CE%B5%CF%81%CE%AF%CE%B1%CF%82%2010%2C%20"
+        "%CE%9A%CE%BF%CF%81%CF%85%CE%B4%CE%B1%CE%BB%CE%BB%CF%8C%CF%82%2018120/"
+        "@37.9772195,23.6490417,17z")
+# Το /maps/dir/ ΧΩΡΙΣ origin: οι Χάρτες συμπληρώνουν μόνοι τους την τοποθεσία
+# του επισκέπτη. Χωρίς dir_action=navigate — δεν ξεκινά μόνη της φωνητική
+# πλοήγηση σε κάποιον που απλώς κοιτάζει πού είναι το ιατρείο.
+DIR = ("https://www.google.com/maps/dir/?api=1&amp;destination=" + COORDS +
+       "&amp;travelmode=")
+
+NAV_ICON = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" '
+            'focusable="false"><path d="M12 2 21 21.2 12 17.3 3 21.2Z"/></svg>')
+GO_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+           'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
+           'aria-hidden="true" focusable="false">'
+           '<path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg>')
+
+# Ποιο μέσο προτείνεται πρώτο σε κάθε περιοχή. Δεν είναι διακοσμητικό: είναι
+# ό,τι λέει ήδη η ενότητα «Πώς θα έρθετε» της ίδιας σελίδας.
+MODES = [("driving", "Με αυτοκίνητο"), ("transit", "Με ΜΜΜ"),
+         ("walking", "Με τα πόδια")]
 
 
 def site_base():
@@ -60,7 +82,7 @@ def booking_url():
 # ένα «στην Πειραιά» στην πρώτη γραμμή της σελίδας κοστίζει την εμπιστοσύνη.
 AREAS = [
     dict(
-        slug="korydallos", nom="Κορυδαλλός", loc="στον Κορυδαλλό",
+        slug="korydallos", mode="walking", nom="Κορυδαλλός", loc="στον Κορυδαλλό",
         acc="τον Κορυδαλλό", short="στην Πλατεία Ελευθερίας",
         gen="Κορυδαλλού", frm="από τον Κορυδαλλό", home=True,
         blurb="Το ιατρείο βρίσκεται στην Πλατεία Ελευθερίας, στο κέντρο "
@@ -85,7 +107,7 @@ AREAS = [
         ],
     ),
     dict(
-        slug="nikaia", nom="Νίκαια", loc="στη Νίκαια",
+        slug="nikaia", mode="transit", nom="Νίκαια", loc="στη Νίκαια",
         acc="τη Νίκαια", short="μία στάση Μετρό από τη Νίκαια",
         gen="Νίκαιας", frm="από τη Νίκαια", home=False,
         blurb="Η Νίκαια συνορεύει με τον Κορυδαλλό: το ιατρείο απέχει "
@@ -108,7 +130,7 @@ AREAS = [
         ],
     ),
     dict(
-        slug="peiraias", nom="Πειραιάς", loc="στον Πειραιά",
+        slug="peiraias", mode="transit", nom="Πειραιάς", loc="στον Πειραιά",
         acc="τον Πειραιά", short="τρεις στάσεις Μετρό από τον Πειραιά",
         gen="Πειραιά", frm="από τον Πειραιά", home=False,
         blurb="Ο Κορυδαλλός συνδέεται με τον Πειραιά απευθείας με τη "
@@ -132,7 +154,7 @@ AREAS = [
         ],
     ),
     dict(
-        slug="peristeri", nom="Περιστέρι", loc="στο Περιστέρι",
+        slug="peristeri", mode="driving", nom="Περιστέρι", loc="στο Περιστέρι",
         acc="το Περιστέρι", short="οδικώς από το Περιστέρι μέσω Λεωφ. Θηβών",
         gen="Περιστερίου", frm="από το Περιστέρι", home=False,
         blurb="Από το Περιστέρι η συντομότερη διαδρομή προς τον Κορυδαλλό "
@@ -217,6 +239,14 @@ def page(area, base, book):
     travel = "\n".join("      <p>%s</p>" % esc(t) for t in area["travel"])
     exams = "".join("<li>%s</li>" % esc(e) for e in EXAMS)
     urgent = "".join("<li>%s</li>" % esc(u) for u in URGENT)
+    # Τα υπόλοιπα μέσα μπαίνουν μετά το προτεινόμενο, ώστε το πρώτο τσιπ να
+    # συμφωνεί με ό,τι μόλις διάβασε ο επισκέπτης στο «Πώς θα έρθετε».
+    modes = ([(m, lbl) for m, lbl in MODES if m == area["mode"]] +
+             [(m, lbl) for m, lbl in MODES if m != area["mode"]])
+    mode_html = "".join(
+        '<li><a href="%s%s" target="_blank" rel="noopener">%s</a></li>'
+        % (DIR, m, esc(lbl)) for m, lbl in modes)
+
     faq_html = "\n".join(
         "      <details>\n"
         "        <summary>%s</summary>\n"
@@ -371,7 +401,23 @@ def page(area, base, book):
       το <strong>166</strong>.</p>
     </div>
 
-    <h2>Στοιχεία ιατρείου</h2>
+    <h2>Πού είναι το ιατρείο</h2>
+
+    <a class="gmaps" href="{dir}{mode}" target="_blank" rel="noopener"
+       aria-label="Οδηγίες πλοήγησης προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">
+      <span class="gmaps-ico">{nav}</span>
+      <span class="gmaps-txt">
+        <b>Οδηγίες πλοήγησης {frm}</b>
+        <small>{street}, {city} · Χάρτες Google</small>
+      </span>
+      <span class="gmaps-go">{go}</span>
+    </a>
+    <p class="gmaps-help">Υπολογίζει τη διαδρομή από την τοποθεσία σας. Σε κινητό
+    ανοίγει απευθείας η εφαρμογή Χάρτες.</p>
+    <ul class="gmaps-modes">{modes}
+      <li><a href="{maps}" target="_blank" rel="noopener">Προβολή στον χάρτη</a></li>
+    </ul>
+
     <dl class="nap">
       <div><dt>Διεύθυνση</dt><dd><a href="{maps}" target="_blank" rel="noopener">{street}, {city} {postal}</a></dd></div>
       <div><dt>Τηλέφωνο</dt><dd><a href="tel:{phone_href}">{phone}</a></dd></div>
@@ -419,6 +465,8 @@ def page(area, base, book):
         blurb=esc(area["blurb"]), frm=esc(frm),
         travel=travel, exams=exams, urgent=urgent,
         faq_html=faq_html, faq_ld=faq_ld, nearby=nearby,
+        dir=DIR, mode=area["mode"], modes=mode_html,
+        nav=NAV_ICON, go=GO_ICON,
         phone=PHONE_TEXT, phone_href=PHONE_HREF, intl=PHONE_INTL,
         mob=MOBILE_TEXT, mob_href=MOBILE_HREF, email=EMAIL,
         street=esc(STREET), street_j=jstr(STREET), city=CITY, postal=POSTAL,

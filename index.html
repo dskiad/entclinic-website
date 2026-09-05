@@ -442,6 +442,55 @@
   .hours-row.closed span:last-child{color:var(--brass);font-weight:600;}
   .addr-block{margin-top:26px;padding-top:22px;border-top:1px solid rgba(250,248,243,0.14);font-size:13.5px;color:rgba(250,248,243,0.78);}
   .addr-block a{display:block;margin-top:6px;color:var(--brass);font-weight:600;}
+
+  /* ===== Οδηγίες πλοήγησης =====
+     Ο παλιός σύνδεσμος άνοιγε την ΠΡΟΒΟΛΗ του χάρτη· δεν οδηγούσε κανέναν.
+     Το /maps/dir/ ζητά από τους Χάρτες να υπολογίσουν διαδρομή ΑΠΟ την
+     τοποθεσία του επισκέπτη, και σε κινητό ανοίγει την εφαρμογή.
+
+     Προορισμός δίνονται οι συντεταγμένες, όχι το κείμενο της διεύθυνσης: το
+     «Δ. Διαμαντίδη 6 & Πλ. Ελευθερίας 10» είναι γωνία δύο δρόμων και ως
+     κείμενο γεωκωδικοποιείται αναξιόπιστα — ένας ασθενής που ξεκινά με λάθος
+     πινέζα το καταλαβαίνει όταν έχει ήδη φτάσει αλλού.
+
+     Το μπλοκ ΔΕΝ μπαίνει μέσα στο .addr-block: εκεί ισχύει ο κανόνας
+     «.addr-block a{display:block}» που θα ακύρωνε το flex layout. */
+  .gmaps{
+    display:flex;align-items:center;gap:14px;margin-top:16px;padding:13px 15px;
+    border-radius:3px;text-decoration:none;
+    background:rgba(250,248,243,0.06);border:1px solid rgba(250,248,243,0.18);
+    transition:background .2s ease,border-color .2s ease,transform .2s ease;
+  }
+  .gmaps:hover{background:rgba(164,124,76,0.2);border-color:var(--brass);transform:translateY(-1px);}
+  .gmaps:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+  .gmaps-ico{
+    flex:none;width:38px;height:38px;border-radius:50%;background:var(--brass);
+    display:grid;place-items:center;color:var(--ink);
+  }
+  .gmaps-ico svg{width:18px;height:18px;display:block;}
+  .gmaps-txt{display:flex;flex-direction:column;gap:2px;min-width:0;}
+  .gmaps-txt b{color:var(--paper);font-size:14.5px;font-weight:600;}
+  .gmaps-txt small{color:rgba(250,248,243,0.6);font-size:11.5px;line-height:1.4;}
+  .gmaps-go{margin-left:auto;flex:none;color:var(--brass);display:grid;place-items:center;
+    transition:transform .2s ease;}
+  .gmaps-go svg{width:17px;height:17px;display:block;}
+  .gmaps:hover .gmaps-go{transform:translateX(3px);}
+  .gmaps-help{margin:11px 0 0;font-size:11.5px;line-height:1.6;color:rgba(250,248,243,0.5);}
+  .gmaps-modes{list-style:none;margin:11px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:7px;}
+  .gmaps-modes a{
+    display:inline-block;font-size:11px;font-weight:600;letter-spacing:.05em;
+    padding:6px 11px;border-radius:2px;text-decoration:none;
+    color:rgba(250,248,243,0.7);border:1px solid rgba(250,248,243,0.2);
+    transition:color .15s ease,background .15s ease,border-color .15s ease;
+  }
+  .gmaps-modes a:hover,.gmaps-modes a:focus-visible{
+    color:var(--ink);background:var(--brass);border-color:var(--brass);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .gmaps,.gmaps-go,.gmaps-modes a{transition:none;}
+    .gmaps:hover{transform:none;}
+    .gmaps:hover .gmaps-go{transform:none;}
+  }
   .licence-block{margin-top:26px;padding-top:22px;border-top:1px solid rgba(250,248,243,0.14);}
   .licence-block h4{
     font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.14em;
@@ -1137,8 +1186,25 @@
         <div class="hours-row closed"><span>Κυριακή</span><span>Κλειστά</span></div>
         <div class="addr-block">
           Δ. Διαμαντίδη 6 &amp; Πλ. Ελευθερίας 10, Κορυδαλλός 18120
-          <a href="https://www.google.com/maps/place/%CE%94.%20%CE%94%CE%B9%CE%B1%CE%BC%CE%B1%CE%BD%CF%84%CE%AF%CE%B4%CE%B7%206%20%26%20%CE%A0%CE%BB.%20%CE%95%CE%BB%CE%B5%CF%85%CE%B8%CE%B5%CF%81%CE%AF%CE%B1%CF%82%2010%2C%20%CE%9A%CE%BF%CF%81%CF%85%CE%B4%CE%B1%CE%BB%CE%BB%CF%8C%CF%82%2018120/@37.9772195,23.6490417,17z" target="_blank" rel="noopener">Δείτε στον χάρτη →</a>
         </div>
+
+        <a class="gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=driving" target="_blank" rel="noopener"
+           aria-label="Οδηγίες πλοήγησης προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">
+          <span class="gmaps-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2 21 21.2 12 17.3 3 21.2Z"/></svg></span>
+          <span class="gmaps-txt">
+            <b>Οδηγίες πλοήγησης</b>
+            <small>Δ. Διαμαντίδη 6, Κορυδαλλός · Χάρτες Google</small>
+          </span>
+          <span class="gmaps-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <p class="gmaps-help">Υπολογίζει τη διαδρομή από την τοποθεσία σας. Σε κινητό
+        ανοίγει απευθείας η εφαρμογή Χάρτες.</p>
+        <ul class="gmaps-modes">
+          <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=driving" target="_blank" rel="noopener">Με αυτοκίνητο</a></li>
+          <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=transit" target="_blank" rel="noopener">Με ΜΜΜ</a></li>
+          <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=walking" target="_blank" rel="noopener">Με τα πόδια</a></li>
+          <li><a href="https://www.google.com/maps/place/%CE%94.%20%CE%94%CE%B9%CE%B1%CE%BC%CE%B1%CE%BD%CF%84%CE%AF%CE%B4%CE%B7%206%20%26%20%CE%A0%CE%BB.%20%CE%95%CE%BB%CE%B5%CF%85%CE%B8%CE%B5%CF%81%CE%AF%CE%B1%CF%82%2010%2C%20%CE%9A%CE%BF%CF%81%CF%85%CE%B4%CE%B1%CE%BB%CE%BB%CF%8C%CF%82%2018120/@37.9772195,23.6490417,17z" target="_blank" rel="noopener">Προβολή στον χάρτη</a></li>
+        </ul>
 
         <div class="licence-block">
           <h4>Νόμιμη λειτουργία</h4>
@@ -1660,7 +1726,8 @@
       <div>
         <h4>Επικοινωνία</h4>
         <ul>
-          <li>Δ. Διαμαντίδη 6 &amp; Πλ. Ελευθερίας 10, Κορυδαλλός 18120</li>
+          <li>Δ. Διαμαντίδη 6 &amp; Πλ. Ελευθερίας 10, Κορυδαλλός 18120 —
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=driving" target="_blank" rel="noopener">οδηγίες&nbsp;→</a></li>
           <li><a href="tel:2114182737">Τηλ: +30 211 418 27 37</a></li>
           <li><a href="tel:6936503658">Κιν: +30 6936 503 658</a></li>
           <li><a href="mailto:lmariolis@entclinic.gr">lmariolis@entclinic.gr</a></li>
