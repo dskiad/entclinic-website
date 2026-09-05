@@ -77,7 +77,11 @@
 
    Αλλάζει με:  python3 tools/set-site-url.py --booking https://…/
    ========================================================================== */
-const BOOKING_URL = "https://booking.entclinic.gr/book-appointment/";
+// ΠΡΟΣΩΡΙΝΑ ΚΕΝΟ: το booking.entclinic.gr δεν έχει ακόμη εγγραφή A.
+// Με διεύθυνση εδώ, η σελίδα θα έστελνε τον ασθενή σε host που δεν
+// αναλύεται· κενή, δείχνει τηλέφωνο και email. Την ημέρα της αλλαγής:
+//   python3 tools/set-site-url.py --booking https://booking.entclinic.gr/book-appointment/
+const BOOKING_URL = "";
 
 (function () {
   var msg = document.getElementById('msg');
