@@ -1,0 +1,98 @@
+/* Το κουμπί «Οδήγησέ με» — ΜΙΑ πηγή για την αρχική και τις σελίδες περιοχής.
+   Ήταν γραμμένο μέσα στο index.html· με πέντε σελίδες να το χρησιμοποιούν,
+   αντιγραμμένο θα ξέφευγε στην πρώτη αλλαγή. */
+/* ===== «Οδήγησέ με» — κουμπί Χαρτών Google =====
+   Ο κώδικας δόθηκε έτοιμος και κρατιέται όπως είναι. Το μπλε και η κόκκινη
+   πινέζα δεν ανήκουν στην παλέτα του ιατρείου — αυτό ακριβώς είναι το ζητούμενο:
+   ο επισκέπτης πρέπει να ΚΑΤΑΛΑΒΕΙ ότι ανοίγει Χάρτες Google πριν το πατήσει.
+   Προστέθηκαν μόνο δύο μεγέθη και ο σεβασμός στο prefers-reduced-motion.
+
+   Προορισμός: το σύντομο link maps.app.goo.gl που έδωσε το ιατρείο — δείχνει
+   στην ίδια την καταχώριση του ιατρείου στους Χάρτες, όχι σε συντεταγμένες
+   που μαντέψαμε. Και τα τρία κουμπιά δείχνουν εκεί. Τα τσιπ από κάτω («Με
+   αυτοκίνητο», «Με ΜΜΜ», «Με τα πόδια») κρατούν τη διεύθυνση /maps/dir/,
+   γιατί μόνο εκείνη δέχεται παράμετρο μέσου μεταφοράς. */
+.smart-map-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 12px 28px 12px 14px;
+  border-radius: 60px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.smart-map-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+.smart-map-button:hover::before { left: 100%; }
+.smart-map-button:focus-visible { outline: 3px solid #7DD3FC; outline-offset: 3px; }
+.map-icon-wrapper {
+  position: relative;
+  background: #ffffff;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+.mini-fold-map {
+  position: absolute;
+  bottom: 2px; right: 2px;
+  width: 12px; height: 12px;
+  background: #34A853;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+.button-text-content { display: flex; flex-direction: column; line-height: 1.2; }
+.button-main-title {
+  font-size: 13px; letter-spacing: 1.5px; font-weight: 700; color: #e0f2fe;
+}
+.button-sub-title {
+  font-size: 18px; font-weight: 800; color: #ffffff;
+  display: flex; align-items: center; gap: 4px;
+}
+.arrow-icon { transition: transform 0.3s ease; }
+.smart-map-button:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  box-shadow: 0 14px 30px rgba(2, 132, 199, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+.smart-map-button:hover .arrow-icon { transform: translateX(4px); }
+.smart-map-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4);
+}
+
+/* Μικρή εκδοχή: κεφαλίδα και υποσέλιδο, όπου το κανονικό μέγεθος δεν χωρά. */
+.smart-map-button.is-compact { gap: 10px; padding: 6px 18px 6px 6px; }
+.is-compact .map-icon-wrapper { width: 34px; height: 34px; }
+.is-compact .google-pin-icon { width: 21px; height: 21px; }
+.is-compact .mini-fold-map { width: 9px; height: 9px; bottom: 1px; right: 1px; }
+.is-compact .button-main-title { font-size: 9.5px; letter-spacing: 1.1px; }
+.is-compact .button-sub-title { font-size: 13px; }
+
+/* Στην κεφαλίδα, μόλις στενέψει, μένει μόνο η πινέζα — στρογγυλό κουμπί.
+   Το τηλέφωνο κρύβεται στα 1240px· η πινέζα ΟΧΙ, γιατί στο κινητό είναι
+   ακριβώς εκεί που χρειάζεται κανείς οδηγίες. */
+@media (max-width:1240px){
+  .header-actions .smart-map-button{ padding:5px; gap:0; }
+  .header-actions .button-text-content{ display:none; }
+}
+@media (prefers-reduced-motion: reduce){
+  .smart-map-button, .smart-map-button::before, .arrow-icon { transition: none; }
+  .smart-map-button:hover { transform: none; }
+  .smart-map-button:hover::before { left: -100%; }
+  .smart-map-button:hover .arrow-icon { transform: none; }
+}

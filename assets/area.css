@@ -73,35 +73,10 @@ dl.nap dd{margin:0;color:var(--ink-soft);font-size:14.5px;}
 }
 .nearby a:hover{border-color:var(--brass);}
 
-/* --- Οδηγίες πλοήγησης ---------------------------------------------------
-   Ίδιο στοιχείο με την αρχική σελίδα, σε ανοιχτό φόντο: εκεί κάθεται μέσα στη
-   σκούρα κάρτα ωραρίου, εδώ πάνω στο χαρτί. Τα χρώματα αντιστρέφονται, οι
-   αποστάσεις μένουν ίδιες. */
-.gmaps{
-  display:flex;align-items:center;gap:15px;margin:0 0 12px;padding:15px 18px;
-  background:var(--card);border:1px solid var(--line);border-radius:3px;
-  text-decoration:none;
-  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
-}
-.gmaps:hover{
-  border-color:var(--brass);transform:translateY(-1px);
-  box-shadow:0 4px 18px rgba(46,29,18,.09);
-}
-.gmaps:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
-.gmaps-ico{
-  flex:none;width:42px;height:42px;border-radius:50%;background:var(--ink);
-  display:grid;place-items:center;color:var(--paper);
-  transition:background .2s ease;
-}
-.gmaps:hover .gmaps-ico{background:var(--brass-deep);}
-.gmaps-ico svg{width:19px;height:19px;display:block;}
-.gmaps-txt{display:flex;flex-direction:column;gap:3px;min-width:0;}
-.gmaps-txt b{color:var(--ink);font-size:15.5px;font-weight:600;}
-.gmaps-txt small{color:var(--muted);font-size:12.5px;line-height:1.4;}
-.gmaps-go{margin-left:auto;flex:none;color:var(--brass);display:grid;place-items:center;
-  transition:transform .2s ease;}
-.gmaps-go svg{width:18px;height:18px;display:block;}
-.gmaps:hover .gmaps-go{transform:translateX(3px);}
+/* --- Βοηθητικά γύρω από το κουμπί «Οδήγησέ με» ---------------------------
+   Το ίδιο το κουμπί ορίζεται στο assets/map-button.css, κοινό με την αρχική.
+   Εδώ μένουν μόνο η επεξήγηση από κάτω και τα τσιπ επιλογής μέσου. */
+.smart-map-button{margin-bottom:12px;}
 .gmaps-help{margin:0 0 14px;font-size:13px;line-height:1.6;color:var(--muted);}
 .gmaps-modes{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
 .gmaps-modes a{

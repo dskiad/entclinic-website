@@ -34,6 +34,7 @@
 
 <link rel="preload" href="assets/fonts/Inter-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/EBGaramond-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/map-button.css">
 <style>
   /* Γραμματοσειρές φιλοξενούμενες τοπικά (SIL Open Font License 1.1 — δείτε
      assets/fonts/OFL-*.txt). Δεν γίνεται καμία κλήση σε διακομιστές τρίτων,
@@ -172,102 +173,6 @@
     .menu-toggle{display:block;}
   }
 
-
-  /* ===== «Οδήγησέ με» — κουμπί Χαρτών Google =====
-     Ο κώδικας δόθηκε έτοιμος και κρατιέται όπως είναι. Το μπλε και η κόκκινη
-     πινέζα δεν ανήκουν στην παλέτα του ιατρείου — αυτό ακριβώς είναι το ζητούμενο:
-     ο επισκέπτης πρέπει να ΚΑΤΑΛΑΒΕΙ ότι ανοίγει Χάρτες Google πριν το πατήσει.
-     Προστέθηκαν μόνο δύο μεγέθη και ο σεβασμός στο prefers-reduced-motion.
-
-     Προορισμός: το σύντομο link maps.app.goo.gl που έδωσε το ιατρείο — δείχνει
-     στην ίδια την καταχώριση του ιατρείου στους Χάρτες, όχι σε συντεταγμένες
-     που μαντέψαμε. Και τα τρία κουμπιά δείχνουν εκεί. Τα τσιπ από κάτω («Με
-     αυτοκίνητο», «Με ΜΜΜ», «Με τα πόδια») κρατούν τη διεύθυνση /maps/dir/,
-     γιατί μόνο εκείνη δέχεται παράμετρο μέσου μεταφοράς. */
-  .smart-map-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-    color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: 12px 28px 12px 14px;
-    border-radius: 60px;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-  }
-  .smart-map-button::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-  }
-  .smart-map-button:hover::before { left: 100%; }
-  .smart-map-button:focus-visible { outline: 3px solid #7DD3FC; outline-offset: 3px; }
-  .map-icon-wrapper {
-    position: relative;
-    background: #ffffff;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0;
-  }
-  .mini-fold-map {
-    position: absolute;
-    bottom: 2px; right: 2px;
-    width: 12px; height: 12px;
-    background: #34A853;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-  }
-  .button-text-content { display: flex; flex-direction: column; line-height: 1.2; }
-  .button-main-title {
-    font-size: 13px; letter-spacing: 1.5px; font-weight: 700; color: #e0f2fe;
-  }
-  .button-sub-title {
-    font-size: 18px; font-weight: 800; color: #ffffff;
-    display: flex; align-items: center; gap: 4px;
-  }
-  .arrow-icon { transition: transform 0.3s ease; }
-  .smart-map-button:hover {
-    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-    box-shadow: 0 14px 30px rgba(2, 132, 199, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.4);
-    transform: translateY(-3px);
-  }
-  .smart-map-button:hover .arrow-icon { transform: translateX(4px); }
-  .smart-map-button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4);
-  }
-
-  /* Μικρή εκδοχή: κεφαλίδα και υποσέλιδο, όπου το κανονικό μέγεθος δεν χωρά. */
-  .smart-map-button.is-compact { gap: 10px; padding: 6px 18px 6px 6px; }
-  .is-compact .map-icon-wrapper { width: 34px; height: 34px; }
-  .is-compact .google-pin-icon { width: 21px; height: 21px; }
-  .is-compact .mini-fold-map { width: 9px; height: 9px; bottom: 1px; right: 1px; }
-  .is-compact .button-main-title { font-size: 9.5px; letter-spacing: 1.1px; }
-  .is-compact .button-sub-title { font-size: 13px; }
-
-  /* Στην κεφαλίδα, μόλις στενέψει, μένει μόνο η πινέζα — στρογγυλό κουμπί.
-     Το τηλέφωνο κρύβεται στα 1240px· η πινέζα ΟΧΙ, γιατί στο κινητό είναι
-     ακριβώς εκεί που χρειάζεται κανείς οδηγίες. */
-  @media (max-width:1240px){
-    .header-actions .smart-map-button{ padding:5px; gap:0; }
-    .header-actions .button-text-content{ display:none; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .smart-map-button, .smart-map-button::before, .arrow-icon { transition: none; }
-    .smart-map-button:hover { transform: none; }
-    .smart-map-button:hover::before { left: -100%; }
-    .smart-map-button:hover .arrow-icon { transform: none; }
-  }
 
   /* ===== Hero ===== */
   .hero{
@@ -552,26 +457,6 @@
 
      Το μπλοκ ΔΕΝ μπαίνει μέσα στο .addr-block: εκεί ισχύει ο κανόνας
      «.addr-block a{display:block}» που θα ακύρωνε το flex layout. */
-  .gmaps{
-    display:flex;align-items:center;gap:14px;margin-top:16px;padding:13px 15px;
-    border-radius:3px;text-decoration:none;
-    background:rgba(250,248,243,0.06);border:1px solid rgba(250,248,243,0.18);
-    transition:background .2s ease,border-color .2s ease,transform .2s ease;
-  }
-  .gmaps:hover{background:rgba(164,124,76,0.2);border-color:var(--brass);transform:translateY(-1px);}
-  .gmaps:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
-  .gmaps-ico{
-    flex:none;width:38px;height:38px;border-radius:50%;background:var(--brass);
-    display:grid;place-items:center;color:var(--ink);
-  }
-  .gmaps-ico svg{width:18px;height:18px;display:block;}
-  .gmaps-txt{display:flex;flex-direction:column;gap:2px;min-width:0;}
-  .gmaps-txt b{color:var(--paper);font-size:14.5px;font-weight:600;}
-  .gmaps-txt small{color:rgba(250,248,243,0.6);font-size:11.5px;line-height:1.4;}
-  .gmaps-go{margin-left:auto;flex:none;color:var(--brass);display:grid;place-items:center;
-    transition:transform .2s ease;}
-  .gmaps-go svg{width:17px;height:17px;display:block;}
-  .gmaps:hover .gmaps-go{transform:translateX(3px);}
   .gmaps-help{margin:11px 0 0;font-size:11.5px;line-height:1.6;color:rgba(250,248,243,0.5);}
   .gmaps-modes{list-style:none;margin:11px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:7px;}
   .gmaps-modes a{
@@ -1218,8 +1103,8 @@
             <span class="button-sub-title">ΣΤΟ ΙΑΤΡΕΙΟ <span class="arrow-icon">›</span></span>
           </div>
         </a>
-        <p class="gmaps-help">Υπολογίζει τη διαδρομή από την τοποθεσία σας. Σε κινητό
-        ανοίγει απευθείας η εφαρμογή Χάρτες.</p>
+        <p class="gmaps-help">Ανοίγει τους Χάρτες Google — σε κινητό, απευθείας την
+        εφαρμογή. Από κάτω, διαδρομή ανά μέσο μεταφοράς.</p>
         <ul class="gmaps-modes">
           <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=driving" target="_blank" rel="noopener">Με αυτοκίνητο</a></li>
           <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=transit" target="_blank" rel="noopener">Με ΜΜΜ</a></li>
@@ -1731,8 +1616,20 @@
     <div class="hero-cta" style="justify-content:center;">
       <a class="btn btn-solid" href="tel:2114182737">Καλέστε 211 418 27 37</a>
       <a class="btn btn-outline" href="mailto:lmariolis@entclinic.gr">Στείλτε Email</a>
-      <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=driving" target="_blank" rel="noopener"
-         aria-label="Οδηγίες πλοήγησης προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">Οδηγίες Πλοήγησης</a>
+      <a href="https://maps.app.goo.gl/2Zwkrue6Wv7vSznw6?g_st=ac" target="_blank" rel="noopener noreferrer" class="smart-map-button is-compact"
+         aria-label="Οδηγίες προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">
+        <div class="map-icon-wrapper">
+          <svg class="google-pin-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
+            <path fill="#EA4335" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle fill="#FFFFFF" cx="12" cy="9" r="2.5"/>
+          </svg>
+          <div class="mini-fold-map"></div>
+        </div>
+        <div class="button-text-content">
+          <span class="button-main-title">ΟΔΗΓΗΣΕ ΜΕ</span>
+          <span class="button-sub-title">ΣΤΟ ΙΑΤΡΕΙΟ <span class="arrow-icon">›</span></span>
+        </div>
+      </a>
     </div>
   </div>
 </section>

@@ -18,6 +18,7 @@
 <meta name="theme-color" content="#2E1D12">
 <link rel="stylesheet" href="../assets/legal.css">
 <link rel="stylesheet" href="../assets/area.css">
+<link rel="stylesheet" href="../assets/map-button.css">
 
 <!-- Δομημένα δεδομένα: η σελίδα δεν δηλώνει δεύτερο ιατρείο. Παραπέμπει στο
      ένα και μοναδικό, με @id ίδιο με της αρχικής, και προσθέτει μόνο την
@@ -153,17 +154,22 @@
 
     <h2>Πού είναι το ιατρείο</h2>
 
-    <a class="gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=transit" target="_blank" rel="noopener"
-       aria-label="Οδηγίες πλοήγησης προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">
-      <span class="gmaps-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2 21 21.2 12 17.3 3 21.2Z"/></svg></span>
-      <span class="gmaps-txt">
-        <b>Οδηγίες πλοήγησης από τον Πειραιά</b>
-        <small>Δ. Διαμαντίδη 6 &amp; Πλ. Ελευθερίας 10, Κορυδαλλός · Χάρτες Google</small>
-      </span>
-      <span class="gmaps-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></span>
+    <a href="https://maps.app.goo.gl/2Zwkrue6Wv7vSznw6?g_st=ac" target="_blank" rel="noopener noreferrer" class="smart-map-button"
+       aria-label="Οδηγίες προς το ιατρείο με τους Χάρτες Google — ανοίγει σε νέο παράθυρο">
+      <div class="map-icon-wrapper">
+        <svg class="google-pin-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
+          <path fill="#EA4335" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle fill="#FFFFFF" cx="12" cy="9" r="2.5"/>
+        </svg>
+        <div class="mini-fold-map"></div>
+      </div>
+      <div class="button-text-content">
+        <span class="button-main-title">ΟΔΗΓΗΣΕ ΜΕ</span>
+        <span class="button-sub-title">ΣΤΟ ΙΑΤΡΕΙΟ <span class="arrow-icon">›</span></span>
+      </div>
     </a>
-    <p class="gmaps-help">Υπολογίζει τη διαδρομή από την τοποθεσία σας. Σε κινητό
-    ανοίγει απευθείας η εφαρμογή Χάρτες.</p>
+    <p class="gmaps-help">Ανοίγει τους Χάρτες Google — σε κινητό, απευθείας την
+    εφαρμογή. Από κάτω, διαδρομή ανά μέσο μεταφοράς.</p>
     <ul class="gmaps-modes"><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=transit" target="_blank" rel="noopener">Με ΜΜΜ</a></li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=driving" target="_blank" rel="noopener">Με αυτοκίνητο</a></li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=37.9772195%2C23.6490417&amp;travelmode=walking" target="_blank" rel="noopener">Με τα πόδια</a></li>
       <li><a href="https://www.google.com/maps/place/%CE%94.%20%CE%94%CE%B9%CE%B1%CE%BC%CE%B1%CE%BD%CF%84%CE%AF%CE%B4%CE%B7%206%20%26%20%CE%A0%CE%BB.%20%CE%95%CE%BB%CE%B5%CF%85%CE%B8%CE%B5%CF%81%CE%AF%CE%B1%CF%82%2010%2C%20%CE%9A%CE%BF%CF%81%CF%85%CE%B4%CE%B1%CE%BB%CE%BB%CF%8C%CF%82%2018120/@37.9772195,23.6490417,17z" target="_blank" rel="noopener">Προβολή στον χάρτη</a></li>
     </ul>
