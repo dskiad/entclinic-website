@@ -585,7 +585,7 @@
   @media (prefers-reduced-motion: reduce){ .article-body{transition:none;} }
 
   /* ---- SOS featured article ---- */
-  :root{ --alert:#9E3B2A; --alert-soft:#FBF1ED; }
+  :root{ --alert:#9E3B2A; --alert-soft:#FBF1ED; --ok:#2F7D52; }
   .feature-card{
     background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brass);
     box-shadow:var(--shadow);padding:38px 36px;margin-bottom:56px;
@@ -607,6 +607,8 @@
   .warn-block ul{margin:0;padding-left:18px;}
   .warn-block li{font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:8px;}
   .warn-block li:last-child{margin-bottom:0;}
+  .article-body .note-line{font-size:12.5px;color:var(--muted);font-style:italic;
+    border-top:1px solid var(--line);padding-top:14px;margin-top:22px;}
   .feature-card.open .article-body{grid-template-rows:1fr;}
   /* Το εκτενές άρθρο πιάνει όλο το πλάτος της κάρτας, που σε desktop
      έφτανε τους ~148 χαρακτήρες ανά γραμμή· το άνετο εύρος είναι 60-80. */
@@ -1196,6 +1198,358 @@
       <h2>Τα Νέα μας</h2>
       <p>Σύντομα άρθρα και χρήσιμες πληροφορίες γύρω από την υγεία αυτιού, μύτης και λαιμού.</p>
     </div>
+    <article class="feature-card feature-wide reveal">
+      <div class="feature-main">
+        <div>
+          <span class="feature-badge">Διεθνής εξέλιξη</span>
+          <h3>Γονιδιακή θεραπεία για τη συγγενή κώφωση: η πρώτη έγκριση</h3>
+          <p class="feature-lede">Τον Απρίλιο του 2026 ο αμερικανικός FDA ενέκρινε την πρώτη
+          γονιδιακή θεραπεία για κληρονομική απώλεια ακοής. Αφορά παιδιά και ενήλικες που
+          γεννήθηκαν με μεταλλάξεις στο γονίδιο <em>OTOF</em>, και αλλάζει κάτι θεμελιώδες στη
+          λογική της ακοολογίας: για πρώτη φορά δεν ενισχύουμε την ακοή που χάθηκε ούτε την
+          παρακάμπτουμε — διορθώνουμε τη βιολογική αιτία που την εμποδίζει. Η έγκριση καλύπτει
+          μία σπάνια και πολύ συγκεκριμένη αιτία κώφωσης, όχι τη βαρηκοΐα γενικά· η σημασία της
+          όμως ξεπερνά κατά πολύ τον αριθμό των ασθενών που αφορά.</p>
+          <button class="more-btn" type="button" aria-expanded="false" aria-controls="art-otof" data-shut="Διαβάστε το άρθρο →">Διαβάστε το άρθρο →</button>
+        </div>
+      </div>
+      <figure class="feature-fig feature-fig-wide">
+        <svg class="otof-diagram" viewBox="0 0 1040 620" role="img" aria-label="Σχηματική απεικόνιση της κώφωσης από μετάλλαξη OTOF και της γονιδιακής θεραπείας. Πάνω, ο κοχλίας και η σημείο της μίας χειρουργικής έγχυσης του φορέα AAV. Κάτω, τρεις καταστάσεις της σύναψης του έσω τριχωτού κυττάρου: φυσιολογικά η οτοφερλίνη απελευθερώνει τα κυστίδια νευροδιαβιβαστή και το ακουστικό νεύρο πυροδοτεί· με μετάλλαξη OTOF η οτοφερλίνη λείπει, τα κυστίδια μένουν δεμένα και το νεύρο σιωπά παρότι το τριχωτό κύτταρο λειτουργεί· μετά τη θεραπεία το λειτουργικό αντίγραφο του γονιδίου αποκαθιστά την οτοφερλίνη και η μετάδοση επανέρχεται." xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="otof-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--brass-deep)"/>
+            </marker>
+            <marker id="otof-arw-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--ok)"/>
+            </marker>
+          </defs>
+          <style>
+            .otof-diagram text{font-family:var(--sans);fill:var(--ink);}
+            .otof-diagram .ttl{font-size:17px;font-weight:700;}
+            .otof-diagram .lbl{font-size:14px;font-weight:600;}
+            .otof-diagram .sml{font-size:12.5px;fill:var(--ink-soft);font-weight:500;}
+            .otof-diagram .tag{font-size:11px;font-weight:700;letter-spacing:.11em;}
+            .otof-diagram .panel{fill:var(--paper-dim);stroke:var(--line);stroke-width:1;}
+            .otof-diagram .cell{fill:#FFFFFF;stroke:var(--ink);stroke-width:2;}
+            .otof-diagram .nerve{fill:none;stroke:var(--ink-soft);stroke-width:3;stroke-linecap:round;}
+          </style>
+
+          <!-- ΠΑΝΩ: ο κοχλίας και η έγχυση -->
+          <rect class="panel" x="16" y="14" width="1008" height="150" rx="3"/>
+          <g transform="translate(96,88)">
+            <path d="M0,-58 A 54,54 0 0 1 50,0 A 44,44 0 0 1 0,40 A 36,36 0 0 1 -32,0 A 28,28 0 0 1 0,-26 A 22,22 0 0 1 19,0"
+                  fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/>
+          </g>
+          <path d="M196,88 L250,88" stroke="var(--brass-deep)" stroke-width="3" marker-end="url(#otof-arw)" fill="none"/>
+          <text class="lbl" x="96" y="162" text-anchor="middle">Κοχλίας</text>
+          <text class="lbl" x="268" y="68">Μία χειρουργική έγχυση, μία φορά στη ζωή</text>
+          <text class="sml" x="268" y="94">Ο φορέας AAV μεταφέρει λειτουργικό αντίγραφο του γονιδίου OTOF</text>
+          <text class="sml" x="268" y="116">μέσα στον κοχλία, υπό γενική αναισθησία. Η προσπέλαση είναι</text>
+          <text class="sml" x="268" y="138">παρόμοια με εκείνη του κοχλιακού εμφυτεύματος.</text>
+
+          <!-- ΚΑΤΩ: τρεις καταστάσεις της σύναψης -->
+          <g>
+            <!-- A. Φυσιολογικά -->
+            <rect class="panel" x="16" y="190" width="324" height="414" rx="3"/>
+            <text class="tag" x="36" y="220" fill="var(--ok)">ΦΥΣΙΟΛΟΓΙΚΑ</text>
+            <path class="cell" d="M78,244 h124 v96 a62,62 0 0 1 -124,0 z"/>
+            <text class="sml" x="140" y="286" text-anchor="middle">Έσω τριχωτό</text>
+            <text class="sml" x="140" y="304" text-anchor="middle">κύτταρο</text>
+            <rect x="120" y="386" width="40" height="7" rx="2" fill="var(--ink)"/>
+            <circle cx="112" cy="372" r="9" fill="var(--ok)"/>
+            <circle cx="140" cy="366" r="9" fill="var(--ok)"/>
+            <circle cx="168" cy="372" r="9" fill="var(--ok)"/>
+            <text class="sml" x="206" y="372">οτοφερλίνη</text>
+            <text class="sml" x="206" y="390">παρούσα</text>
+            <circle cx="124" cy="414" r="5" fill="var(--ok)"/>
+            <circle cx="146" cy="422" r="5" fill="var(--ok)"/>
+            <circle cx="166" cy="412" r="5" fill="var(--ok)"/>
+            <text class="sml" x="40" y="398">σύναψη</text>
+            <path class="nerve" d="M140,440 L140,500"/>
+            <path d="M140,500 L140,540" stroke="var(--ok)" stroke-width="4" marker-end="url(#otof-arw-ok)" fill="none"/>
+            <text class="lbl" x="140" y="572" text-anchor="middle" fill="var(--ok)">Το νεύρο πυροδοτεί</text>
+            <text class="sml" x="140" y="592" text-anchor="middle">ο ήχος φτάνει στον εγκέφαλο</text>
+
+            <!-- B. Μετάλλαξη OTOF -->
+            <rect class="panel" x="358" y="190" width="324" height="414" rx="3"/>
+            <text class="tag" x="378" y="220" fill="var(--alert)">ΜΕΤΑΛΛΑΞΗ OTOF</text>
+            <path class="cell" d="M420,244 h124 v96 a62,62 0 0 1 -124,0 z"/>
+            <text class="sml" x="482" y="286" text-anchor="middle">Το κύτταρο</text>
+            <text class="sml" x="482" y="304" text-anchor="middle">είναι ακέραιο</text>
+            <rect x="462" y="386" width="40" height="7" rx="2" fill="var(--ink)"/>
+            <circle cx="454" cy="372" r="9" fill="none" stroke="var(--alert)" stroke-width="2" stroke-dasharray="3 3"/>
+            <circle cx="482" cy="366" r="9" fill="none" stroke="var(--alert)" stroke-width="2" stroke-dasharray="3 3"/>
+            <circle cx="510" cy="372" r="9" fill="none" stroke="var(--alert)" stroke-width="2" stroke-dasharray="3 3"/>
+            <text class="sml" x="548" y="372" fill="var(--alert)">οτοφερλίνη</text>
+            <text class="sml" x="548" y="390" fill="var(--alert)">απούσα</text>
+            <text class="sml" x="482" y="432" text-anchor="middle" fill="var(--alert)">τα κυστίδια δεν απελευθερώνονται</text>
+            <path class="nerve" d="M482,448 L482,500" stroke-dasharray="6 7"/>
+            <line x1="462" y1="520" x2="502" y2="552" stroke="var(--alert)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="502" y1="520" x2="462" y2="552" stroke="var(--alert)" stroke-width="4" stroke-linecap="round"/>
+            <text class="lbl" x="482" y="582" text-anchor="middle" fill="var(--alert)">Το νεύρο σιωπά</text>
+
+            <!-- Γ. Μετά τη θεραπεία -->
+            <rect class="panel" x="700" y="190" width="324" height="414" rx="3"/>
+            <text class="tag" x="720" y="220" fill="var(--brass-deep)">ΜΕΤΑ ΤΗ ΘΕΡΑΠΕΙΑ</text>
+            <path class="cell" d="M762,244 h124 v96 a62,62 0 0 1 -124,0 z"/>
+            <circle cx="824" cy="288" r="19" fill="none" stroke="var(--brass-deep)" stroke-width="2.5"/>
+            <path d="M814,288 h20 M824,278 v20" stroke="var(--brass-deep)" stroke-width="2.5" stroke-linecap="round"/>
+            <text class="sml" x="824" y="326" text-anchor="middle">αντίγραφο OTOF</text>
+            <rect x="804" y="386" width="40" height="7" rx="2" fill="var(--ink)"/>
+            <circle cx="796" cy="372" r="9" fill="var(--ok)"/>
+            <circle cx="824" cy="366" r="9" fill="var(--ok)"/>
+            <circle cx="852" cy="372" r="9" fill="var(--ok)"/>
+            <circle cx="808" cy="414" r="5" fill="var(--ok)"/>
+            <circle cx="830" cy="422" r="5" fill="var(--ok)"/>
+            <circle cx="850" cy="412" r="5" fill="var(--ok)"/>
+            <text class="sml" x="824" y="452" text-anchor="middle">η οτοφερλίνη ξαναπαράγεται</text>
+            <path class="nerve" d="M824,468 L824,500"/>
+            <path d="M824,500 L824,540" stroke="var(--ok)" stroke-width="4" marker-end="url(#otof-arw-ok)" fill="none"/>
+            <text class="lbl" x="824" y="572" text-anchor="middle" fill="var(--ok)">Η μετάδοση επανέρχεται</text>
+          </g>
+        </svg>
+        <figcaption>Γιατί η κώφωση OTOF είναι ξεχωριστή: το τριχωτό κύτταρο «ακούει» κανονικά,
+        αλλά η σύναψη δεν μπορεί να στείλει το μήνυμα στο νεύρο, επειδή λείπει η πρωτεΐνη
+        οτοφερλίνη. Η θεραπεία δίνει στο κύτταρο λειτουργικό αντίγραφο του γονιδίου, ώστε να
+        ξαναπαράγει την πρωτεΐνη και να αποκατασταθεί η μετάδοση.</figcaption>
+      </figure>
+      <div class="article-body" id="art-otof">
+        <div class="inner">
+          <h4>Γιατί αυτή η κώφωση είναι διαφορετική</h4>
+          <p>Στις περισσότερες μορφές νευροαισθητήριας βαρηκοΐας το πρόβλημα είναι ότι τα τριχωτά
+          κύτταρα του κοχλία έχουν καταστραφεί — από την ηλικία, τον θόρυβο, φάρμακα ή νόσο. Στην
+          κώφωση από μεταλλάξεις <em>OTOF</em> συμβαίνει κάτι άλλο: τα τριχωτά κύτταρα είναι εκεί
+          και λειτουργούν. Αυτό που δεν λειτουργεί είναι η <strong>σύναψη</strong>, το σημείο όπου
+          το κύτταρο παραδίδει το μήνυμα στο ακουστικό νεύρο.</p>
+          <p>Η οτοφερλίνη είναι η πρωτεΐνη που κάνει ακριβώς αυτή τη δουλειά: απελευθερώνει τα
+          κυστίδια νευροδιαβιβαστή τη στιγμή που φτάνει ο ήχος. Χωρίς αυτήν, το κύτταρο αντιλαμβάνεται
+          τον ήχο αλλά δεν μπορεί να τον μεταδώσει. Γι' αυτό η πάθηση κατατάσσεται στις
+          <strong>ακουστικές νευροπάθειες</strong>, και γι' αυτό ο έλεγχος με ωτοακουστικές εκπομπές
+          μπορεί να βγει φυσιολογικός ενώ το παιδί δεν ακούει — μια παγίδα που κάνει τον
+          συνδυασμένο νεογνικό έλεγχο με ABR απαραίτητο.</p>
+
+          <h4>Τι ακριβώς εγκρίθηκε</h4>
+          <p>Πρόκειται για το <em>Otarmeni</em> (lunsotogene parvec-cwha) της Regeneron, που έλαβε
+          <strong>επιταχυνόμενη έγκριση</strong> από τον FDA τον Απρίλιο του 2026. Χορηγείται
+          <strong>μία φορά</strong>, χειρουργικά: με έγχυση μέσα στον κοχλία υπό γενική αναισθησία,
+          με προσπέλαση παρόμοια με εκείνη της τοποθέτησης κοχλιακού εμφυτεύματος. Επειδή το γονίδιο
+          <em>OTOF</em> είναι μεγάλο και δεν χωρά σε έναν ιικό φορέα, χρησιμοποιείται δίδυμος φορέας
+          AAV: δύο σωματίδια μεταφέρουν από ένα κομμάτι, που ενώνονται μέσα στο κύτταρο.</p>
+
+          <h4>Σε ποιους απευθύνεται</h4>
+          <p>Τα κριτήρια είναι στενά και συγκεκριμένα: βαριά έως πολύ βαριά νευροαισθητήρια βαρηκοΐα
+          από <strong>αμφοτερόπλευρες μεταλλάξεις</strong> του <em>OTOF</em> (δηλαδή και στα δύο
+          αντίγραφα του γονιδίου), <strong>διατηρημένη λειτουργία των έξω τριχωτών κυττάρων</strong>,
+          και <strong>χωρίς προηγούμενο κοχλιακό εμφύτευμα</strong> στο αυτί που θα θεραπευτεί. Χωρίς
+          γενετική διάγνωση που να τεκμηριώνει τη μετάλλαξη, δεν τίθεται καν θέμα.</p>
+
+          <h4>Τι δείχνουν τα δεδομένα — και τι όχι</h4>
+          <p>Τα αποτελέσματα είναι εντυπωσιακά αλλά σε μικρούς αριθμούς, και διαφέρουν ανάλογα με
+          τον δείκτη που μετριέται. Η δημοσίευση στο <em>New England Journal of Medicine</em> ανέφερε
+          πλήρη ομαλοποίηση της ευαισθησίας ακοής σε 3 από 12 ασθενείς· η μελέτη CHORD αναφέρει
+          ουσιαστική βελτίωση της ακοής σε περίπου τρεις στους τέσσερις. Πρόκειται για διαφορετικά
+          μεγέθη, όχι για αντιφατικά: το «ακούει καλύτερα» και το «ακούει φυσιολογικά» δεν είναι το
+          ίδιο πράγμα.</p>
+          <p>Η <em>επιταχυνόμενη</em> έγκριση σημαίνει ακριβώς ότι η επιβεβαίωση του οφέλους
+          συνεχίζεται μετά την κυκλοφορία. Δεν γνωρίζουμε ακόμη πόσο διαρκεί το αποτέλεσμα σε βάθος
+          δεκαετιών, ούτε πώς συμπεριφέρεται σε μεγαλύτερες ηλικίες.</p>
+
+          <div class="warn-block">
+            <strong>Τι δεν καλύπτει αυτή η θεραπεία</strong>
+            <ul>
+              <li>Τη βαρηκοΐα της ηλικίας (πρεσβυακουσία) και τη βαρηκοΐα από θόρυβο.</li>
+              <li>Τις υπόλοιπες γενετικές μορφές κώφωσης — και είναι πάνω από εκατό γονίδια. Η
+              συχνότερη αιτία, οι μεταλλάξεις της κοννεξίνης 26 (<em>GJB2</em>), δεν αντιμετωπίζεται
+              με αυτή τη θεραπεία.</li>
+              <li>Τις βαρηκοΐες από ωτίτιδες, ωτοσκλήρυνση ή τραύμα.</li>
+              <li>Ασθενείς που έχουν ήδη κοχλιακό εμφύτευμα στο συγκεκριμένο αυτί.</li>
+            </ul>
+          </div>
+
+          <h4>Τι σημαίνει πρακτικά για έναν γονέα</h4>
+          <p>Η κώφωση από <em>OTOF</em> είναι σπάνια — υπολογίζεται σε τάξη μεγέθους λίγων δεκάδων
+          νεογνών τον χρόνο στις ΗΠΑ. Η πρακτική σημασία όμως είναι ευρύτερη και αφορά κάθε παιδί με
+          συγγενή βαρηκοΐα: <strong>η ακριβής γενετική αιτία έπαψε να είναι ακαδημαϊκή λεπτομέρεια</strong>.
+          Μέχρι χθες η απάντηση ήταν η ίδια ανεξαρτήτως γονιδίου — ακουστικά ή εμφύτευμα. Από τη
+          στιγμή που υπάρχει θεραπεία ειδική για ένα γονίδιο, η γενετική διερεύνηση μπορεί να αλλάξει
+          την ίδια τη θεραπευτική απόφαση, και μάλιστα σε χρόνο που μετράει.</p>
+          <p>Πρακτικά, αυτό σημαίνει ότι ο <strong>νεογνικός ακοολογικός έλεγχος</strong> και η
+          παραπομπή για γενετικό έλεγχο σε επιβεβαιωμένη συγγενή βαρηκοΐα αποκτούν βάρος που δεν
+          είχαν πριν. Η θεραπεία δεν είναι ακόμη διαθέσιμη στην Ελλάδα· η διάγνωση όμως που την
+          προϋποθέτει, είναι.</p>
+          <p class="note-line">Το άρθρο έχει ενημερωτικό χαρακτήρα και δεν υποκαθιστά την ιατρική
+          εκτίμηση. Κάθε περιστατικό συγγενούς βαρηκοΐας αξιολογείται εξατομικευμένα.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature-card feature-wide reveal">
+      <div class="feature-main">
+        <div>
+          <span class="feature-badge">Τεχνολογία</span>
+          <h3>Κοχλιακά εμφυτεύματα: τι άλλαξε πραγματικά</h3>
+          <p class="feature-lede">Όταν η γονιδιακή θεραπεία δεν εφαρμόζεται — και στη συντριπτική
+          πλειονότητα των περιπτώσεων δεν εφαρμόζεται — το κοχλιακό εμφύτευμα παραμένει η λύση που
+          επαναφέρει την ακοή εκεί όπου το ακουστικό βοήθημα δεν αρκεί. Τα τελευταία χρόνια άλλαξε
+          λιγότερο η βασική ιδέα και πολύ περισσότερο τα πάντα γύρω από αυτήν: η επεξεργασία του
+          θορύβου, η σύνδεση με τις συσκευές της καθημερινότητας, η ακρίβεια του χειρουργείου και η
+          παρακολούθηση μετά. Δεν πρόκειται πια για μια συσκευή που τοποθετείται, αλλά για μια
+          διαδρομή που ξεκινά από τη διάγνωση και κρίνεται στους μήνες της αποκατάστασης.</p>
+          <button class="more-btn" type="button" aria-expanded="false" aria-controls="art-ci" data-shut="Διαβάστε το άρθρο →">Διαβάστε το άρθρο →</button>
+        </div>
+      </div>
+      <figure class="feature-fig feature-fig-wide">
+        <svg class="ci-diagram" viewBox="0 0 1040 470" role="img" aria-label="Σχηματική απεικόνιση κοχλιακού εμφυτεύματος. Αριστερά, το εξωτερικό τμήμα πίσω από το αυτί με μικρόφωνο και επεξεργαστή ομιλίας, το πηνίο που κολλά μαγνητικά στο δέρμα, ο εσωτερικός δέκτης κάτω από το δέρμα και η συστοιχία ηλεκτροδίων που εισάγεται μέσα στον κοχλία. Δεξιά, η διαδρομή του σήματος σε έξι βήματα: ήχος, μικρόφωνο, επεξεργαστής ομιλίας, διαδερμική μετάδοση, ηλεκτρική διέγερση μέσα στον κοχλία, ακουστικό νεύρο προς τον εγκέφαλο. Τονίζεται ότι η συσκευή παρακάμπτει τα κατεστραμμένα τριχωτά κύτταρα." xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="ci-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--brass-deep)"/>
+            </marker>
+          </defs>
+          <style>
+            .ci-diagram text{font-family:var(--sans);fill:var(--ink);}
+            .ci-diagram .lbl{font-size:14px;font-weight:600;}
+            .ci-diagram .sml{font-size:12.5px;fill:var(--ink-soft);font-weight:500;}
+            .ci-diagram .tag{font-size:11px;font-weight:700;letter-spacing:.11em;fill:var(--brass-deep);}
+            .ci-diagram .num{font-size:13px;font-weight:700;fill:#FFFFFF;}
+            .ci-diagram .panel{fill:var(--paper-dim);stroke:var(--line);stroke-width:1;}
+          </style>
+
+          <!-- ΑΡΙΣΤΕΡΑ: τι είναι έξω και τι μέσα.
+               Το δέρμα σχεδιάζεται ως γραμμή τομής: είναι ο πιο ειλικρινής τρόπος να
+               φανεί ότι τα δύο τμήματα συνδέονται μαγνητικά, χωρίς ανοιχτή δίοδο. -->
+          <rect class="panel" x="16" y="14" width="470" height="442" rx="3"/>
+          <text class="tag" x="36" y="44">ΤΙ ΕΙΝΑΙ ΕΞΩ ΚΑΙ ΤΙ ΜΕΣΑ</text>
+
+          <line x1="270" y1="76" x2="270" y2="404" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="7 6"/>
+          <text class="sml" x="270" y="68" text-anchor="middle">δέρμα</text>
+          <text class="tag" x="254" y="396" text-anchor="end" fill="var(--ink-soft)">ΕΞΩ</text>
+          <text class="tag" x="286" y="396" fill="var(--ink-soft)">ΜΕΣΑ</text>
+
+          <!-- πτερύγιο αυτιού -->
+          <path d="M150,186 c26,-2 42,20 40,44 c-2,27 -14,41 -24,53 c-8,9 -22,10 -27,1
+                   c-5,-9 5,-15 9,-23 c6,-13 0,-27 -12,-31 c-12,-4 -13,-21 0,-30 z"
+                fill="#FFFFFF" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+
+          <!-- επεξεργαστής πίσω από το αυτί -->
+          <path d="M132,198 c-16,7 -22,25 -19,41 c2,13 6,21 10,27"
+                fill="none" stroke="var(--brass-deep)" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="134" cy="194" r="7" fill="var(--brass-deep)"/>
+          <text class="sml" x="40" y="306">μικρόφωνο +</text>
+          <text class="sml" x="40" y="324">επεξεργαστής</text>
+          <path d="M96,292 C104,282 112,276 120,268" stroke="var(--brass-deep)" stroke-width="2" fill="none"/>
+
+          <!-- πηνίο έξω, δέκτης μέσα, μαγνητική σύζευξη -->
+          <circle cx="232" cy="146" r="20" fill="none" stroke="var(--brass-deep)" stroke-width="5"/>
+          <circle cx="232" cy="146" r="6" fill="var(--brass-deep)"/>
+          <text class="sml" x="232" y="112" text-anchor="middle">πηνίο</text>
+          <rect x="288" y="132" width="58" height="28" rx="14" fill="var(--ink)"/>
+          <text class="sml" x="317" y="112" text-anchor="middle">δέκτης</text>
+          <path d="M254,146 L286,146" stroke="var(--brass-deep)" stroke-width="2.5" stroke-dasharray="4 4"/>
+
+          <!-- ηλεκτρόδιο προς τον κοχλία -->
+          <path d="M322,162 C326,212 342,252 366,274"
+                fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+          <g transform="translate(384,292)">
+            <path d="M0,-26 A 24,24 0 0 1 24,0 A 20,20 0 0 1 0,18 A 16,16 0 0 1 -16,0 A 12,12 0 0 1 0,-10"
+                  fill="none" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <text class="lbl" x="384" y="344" text-anchor="middle">κοχλίας</text>
+          <text class="sml" x="384" y="362" text-anchor="middle">με τη συστοιχία ηλεκτροδίων</text>
+
+          <text class="sml" x="36" y="424">Τα δύο τμήματα συνδέονται μαγνητικά, μέσα από άθικτο</text>
+          <text class="sml" x="36" y="442">δέρμα — δεν υπάρχει ανοιχτή δίοδος προς το εσωτερικό.</text>
+
+          <!-- ΔΕΞΙΑ: η διαδρομή του σήματος -->
+          <rect class="panel" x="506" y="14" width="518" height="442" rx="3"/>
+          <text class="tag" x="526" y="44">Η ΔΙΑΔΡΟΜΗ ΤΟΥ ΣΗΜΑΤΟΣ</text>
+          <g>
+            <circle cx="548" cy="86" r="14" fill="var(--brass-deep)"/><text class="num" x="548" y="91" text-anchor="middle">1</text>
+            <text class="lbl" x="578" y="84">Ήχος</text>
+            <text class="sml" x="578" y="102">ομιλία, μουσική, θόρυβος περιβάλλοντος</text>
+
+            <circle cx="548" cy="146" r="14" fill="var(--brass-deep)"/><text class="num" x="548" y="151" text-anchor="middle">2</text>
+            <text class="lbl" x="578" y="144">Μικρόφωνο &amp; επεξεργαστής</text>
+            <text class="sml" x="578" y="162">φιλτράρει τον θόρυβο, κωδικοποιεί την ομιλία</text>
+
+            <circle cx="548" cy="206" r="14" fill="var(--brass-deep)"/><text class="num" x="548" y="211" text-anchor="middle">3</text>
+            <text class="lbl" x="578" y="204">Διαδερμική μετάδοση</text>
+            <text class="sml" x="578" y="222">από το πηνίο στον δέκτη, χωρίς καλώδιο</text>
+
+            <circle cx="548" cy="266" r="14" fill="var(--alert)"/><text class="num" x="548" y="271" text-anchor="middle">4</text>
+            <text class="lbl" x="578" y="264" fill="var(--alert)">Ηλεκτρική διέγερση στον κοχλία</text>
+            <text class="sml" x="578" y="282" fill="var(--alert)">εδώ παρακάμπτονται τα τριχωτά κύτταρα</text>
+
+            <circle cx="548" cy="326" r="14" fill="var(--brass-deep)"/><text class="num" x="548" y="331" text-anchor="middle">5</text>
+            <text class="lbl" x="578" y="324">Ακουστικό νεύρο</text>
+            <text class="sml" x="578" y="342">διεγείρεται απευθείας από τα ηλεκτρόδια</text>
+
+            <circle cx="548" cy="386" r="14" fill="var(--brass-deep)"/><text class="num" x="548" y="391" text-anchor="middle">6</text>
+            <text class="lbl" x="578" y="384">Εγκέφαλος</text>
+            <text class="sml" x="578" y="402">μαθαίνει να ερμηνεύει το νέο σήμα ως ήχο</text>
+
+            <path d="M548,100 L548,132" stroke="var(--brass-deep)" stroke-width="2" marker-end="url(#ci-arw)" fill="none"/>
+            <path d="M548,160 L548,192" stroke="var(--brass-deep)" stroke-width="2" marker-end="url(#ci-arw)" fill="none"/>
+            <path d="M548,220 L548,252" stroke="var(--brass-deep)" stroke-width="2" marker-end="url(#ci-arw)" fill="none"/>
+            <path d="M548,280 L548,312" stroke="var(--brass-deep)" stroke-width="2" marker-end="url(#ci-arw)" fill="none"/>
+            <path d="M548,340 L548,372" stroke="var(--brass-deep)" stroke-width="2" marker-end="url(#ci-arw)" fill="none"/>
+          </g>
+          <text class="sml" x="526" y="432">Το εμφύτευμα δεν δυναμώνει τον ήχο· τον μεταφράζει σε ηλεκτρικά ερεθίσματα.</text>
+        </svg>
+        <figcaption>Το κοχλιακό εμφύτευμα δεν ενισχύει τον ήχο όπως το ακουστικό βοήθημα. Τον
+        μετατρέπει σε ηλεκτρικά ερεθίσματα και διεγείρει απευθείας το ακουστικό νεύρο,
+        παρακάμπτοντας τα κατεστραμμένα τριχωτά κύτταρα. Γι' αυτό λειτουργεί και εκεί όπου η
+        ενίσχυση δεν προσφέρει τίποτα.</figcaption>
+      </figure>
+      <div class="article-body" id="art-ci">
+        <div class="inner">
+          <h4>Η διαφορά από το ακουστικό βοήθημα</h4>
+          <p>Το ακουστικό βοήθημα δυναμώνει τον ήχο και τον στέλνει από τη φυσιολογική οδό: τύμπανο,
+          οστάρια, κοχλίας. Προϋποθέτει δηλαδή ότι υπάρχουν τριχωτά κύτταρα που μπορούν ακόμη να
+          δουλέψουν. Όταν αυτά έχουν καταστραφεί σε μεγάλο βαθμό, η ενίσχυση απλώς κάνει πιο δυνατό
+          έναν ήχο που παραμένει δυσδιάκριτος.</p>
+          <p>Το κοχλιακό εμφύτευμα κάνει κάτι ποιοτικά διαφορετικό: μετατρέπει τον ήχο σε ηλεκτρικά
+          ερεθίσματα και τα παραδίδει κατευθείαν στις νευρικές ίνες, μέσα από συστοιχία ηλεκτροδίων
+          που εισάγεται στον κοχλία. Παρακάμπτει δηλαδή το σημείο της βλάβης.</p>
+
+          <h4>Τι άλλαξε στη συσκευή</h4>
+          <p>Οι σύγχρονοι επεξεργαστές ξεχωρίζουν την ομιλία από τον θόρυβο πολύ καλύτερα από τις
+          προηγούμενες γενιές — και αυτό έχει σημασία, γιατί το εστιατόριο και η τάξη, όχι το ήσυχο
+          δωμάτιο, είναι εκεί που κρίνεται η καθημερινότητα. Προστέθηκαν η απευθείας μετάδοση ήχου
+          από κινητό και τηλεόραση χωρίς ενδιάμεση συσκευή, μεγαλύτερη αντοχή στο νερό και στον
+          ιδρώτα, και η δυνατότητα <strong>απομακρυσμένης ρύθμισης</strong>, που μειώνει τις
+          μετακινήσεις για κάθε μικρή προσαρμογή — ιδίως για όσους δεν μένουν κοντά σε κέντρο
+          αναφοράς.</p>
+
+          <h4>Τι άλλαξε στο χειρουργείο</h4>
+          <p>Η έμφαση έχει μετατοπιστεί στη <strong>διατήρηση της υπολειπόμενης ακοής</strong>. Με
+          ήπια τεχνική εισαγωγής και πιο λεπτά, εύκαμπτα ηλεκτρόδια, πολλοί ασθενείς διατηρούν μέρος
+          της φυσικής τους ακοής στις χαμηλές συχνότητες και μπορούν να τη συνδυάσουν με το
+          εμφύτευμα. Η ρομποτικά υποβοηθούμενη εισαγωγή, που σταθεροποιεί την κίνηση και ελέγχει την
+          ταχύτητα, μελετάται ως τρόπος να γίνει αυτό πιο επαναλήψιμο.</p>
+          <p>Εδώ χρειάζεται εντιμότητα: ένα μεγάλο μέρος των αριθμών που κυκλοφορούν για τη ρομποτική
+          εισαγωγή προέρχεται από υλικό κατασκευαστών και από μικρές σειρές. Η κατεύθυνση είναι
+          λογική και τα πρώτα δεδομένα ενθαρρυντικά, αλλά δεν έχουμε ακόμη το μέγεθος μελετών που θα
+          δικαιολογούσε κατηγορηματικά συμπεράσματα.</p>
+
+          <h4>Δεν είναι συσκευή — είναι διαδρομή</h4>
+          <p>Το χειρουργείο είναι το συντομότερο κομμάτι. Ακολουθεί η ενεργοποίηση, που σήμερα γίνεται
+          νωρίτερα από παλιά, και στη συνέχεια οι διαδοχικές ρυθμίσεις του επεξεργαστή και η ακουστική
+          και λογοθεραπευτική αποκατάσταση. Ο εγκέφαλος πρέπει να <em>μάθει</em> να διαβάζει ένα σήμα
+          που δεν έχει ξανασυναντήσει, και αυτό είναι δουλειά μηνών. Το αποτέλεσμα ενός εμφυτεύματος
+          δεν κρίνεται την ημέρα της τοποθέτησης· κρίνεται στην επιμονή της αποκατάστασης.</p>
+
+          <h4>Γιατί ο χρόνος μετράει</h4>
+          <p>Στα παιδιά με συγγενή κώφωση, η έγκαιρη εμφύτευση αξιοποιεί την περίοδο κατά την οποία
+          ο εγκέφαλος οργανώνει τα ακουστικά και γλωσσικά του κυκλώματα — γι' αυτό ο νεογνικός
+          έλεγχος και η άμεση παραπομπή είναι κρίσιμα. Στους ενήλικες, η πολύχρονη αναμονή με
+          ανεπαρκή ενίσχυση δυσκολεύει την προσαρμογή αργότερα. Και στις δύο περιπτώσεις, η
+          καθυστέρηση έχει κόστος που δεν φαίνεται στο ακοόγραμμα.</p>
+          <p class="note-line">Το άρθρο έχει ενημερωτικό χαρακτήρα. Η καταλληλότητα για κοχλιακό
+          εμφύτευμα κρίνεται με πλήρη ακοολογικό και απεικονιστικό έλεγχο, από εξειδικευμένη ομάδα.</p>
+        </div>
+      </div>
+    </article>
+
     <article class="feature-card reveal">
       <div class="feature-main">
         <div>
